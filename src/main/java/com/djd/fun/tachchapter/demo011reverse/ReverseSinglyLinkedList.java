@@ -2,7 +2,8 @@ package com.djd.fun.tachchapter.demo011reverse;
 
 import java.util.Objects;
 
-import com.sun.istack.internal.Nullable;
+import javax.annotation.Nullable;
+
 
 /**
  * @author JGD
@@ -10,7 +11,6 @@ import com.sun.istack.internal.Nullable;
  */
 public class ReverseSinglyLinkedList {
   /**
-   *
    * @param head of the linked list
    * @return head of reversed linked list
    */
@@ -20,7 +20,7 @@ public class ReverseSinglyLinkedList {
     }
     Node prevNode = null;
     Node currNode = head;
-    while(currNode != null) {
+    while (currNode != null) {
       Node nextNode = currNode.next;
       currNode.next = prevNode;
       prevNode = currNode;

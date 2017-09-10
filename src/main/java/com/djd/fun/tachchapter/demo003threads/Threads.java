@@ -3,14 +3,16 @@ package com.djd.fun.tachchapter.demo003threads;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.annotation.Nullable;
+
 import com.google.common.base.Throwables;
-import com.sun.istack.internal.Nullable;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This class is a collection of static utility methods related to {@link Thread}
+ *
  * @author JGD
  * @since 8/27/16
  */
@@ -25,7 +27,7 @@ public class Threads {
    * Put current thread to sleep for the specified duration.
    *
    * @param seconds to sleep
-   * @throws RuntimeException wrapper of {@lnk  InterruptedException}
+   * @throws RuntimeException wrapper of {@lnk InterruptedException}
    */
   public static void sleep(long seconds) {
     try {

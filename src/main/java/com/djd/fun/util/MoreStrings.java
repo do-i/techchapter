@@ -1,8 +1,9 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.util;
 
+import javax.annotation.Nullable;
+
 import com.google.common.base.Strings;
-import com.sun.istack.internal.Nullable;
 
 /**
  * Collection of static methods for string manipulations
