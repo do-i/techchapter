@@ -13,6 +13,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 
 import com.djd.fun.tachchapter.demo014swing.canvas.Abstract2DPanel;
 import com.djd.fun.tachchapter.demo014swing.maze.models.Location;
@@ -41,6 +43,7 @@ public class SmallGame extends Abstract2DPanel {
   private final KeyListener keyListener;
   private final ActionListener animateEnemy;
   private final ActionListener invincibleListener;
+  private final AncestorListener ancestorListenernew = new MyAncestorListener();
   private final Random random;
   private final Timer invincibleTimer;
   private final Timer emenyTimer;
@@ -66,6 +69,8 @@ public class SmallGame extends Abstract2DPanel {
     this.emenyTimer.restart();
     removeKeyListener(keyListener); // Just making sure
     addKeyListener(keyListener);
+    removeAncestorListener(ancestorListenernew); // Just making sure
+    addAncestorListener(ancestorListenernew);
   }
 
   @Override
@@ -234,6 +239,23 @@ public class SmallGame extends Abstract2DPanel {
       floorStates.refreshEnemyLocations(destinations);
       repaint();
       checkGameStatus();
+    }
+  }
+
+  private class MyAncestorListener implements AncestorListener {
+
+    @Override public void ancestorAdded(AncestorEvent event) {
+      invincibleTimer.restart();
+      emenyTimer.restart();
+    }
+
+    @Override public void ancestorRemoved(AncestorEvent event) {
+      invincibleTimer.stop();
+      emenyTimer.stop();
+    }
+
+    @Override public void ancestorMoved(AncestorEvent event) {
+      log.info("ancestorMoved");
     }
   }
 }

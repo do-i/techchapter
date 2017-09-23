@@ -11,6 +11,8 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
@@ -47,6 +49,7 @@ public class Animation extends JPanel implements CommandResponder {
     this.random = random;
     this.timer = new Timer(DELAY_MILLISECONDS, new MyActionListener());
     addMouseListener(new MouseEventListener());
+    addAncestorListener(new MyAncestorListener());
   }
 
   @Override
@@ -89,6 +92,23 @@ public class Animation extends JPanel implements CommandResponder {
   @Override
   public Document getDocument() {
     return new PlainDocument();
+  }
+
+  private class MyAncestorListener implements AncestorListener {
+
+    @Override public void ancestorAdded(AncestorEvent event) {
+      timer.restart();
+      log.info("added");
+    }
+
+    @Override public void ancestorRemoved(AncestorEvent event) {
+      timer.stop();
+      log.info("removed");
+    }
+
+    @Override public void ancestorMoved(AncestorEvent event) {
+      log.info("moved");
+    }
   }
 
   /**
