@@ -31,6 +31,49 @@ public class MagicSquareCheckerTest {
   private static final int[][] MAGIC_SQUARE = {{2, 7, 6}, {9, 5, 1}, {4, 3, 8}};
   private static final SquareMatrix MAGIC_SQUARE_MATRIX = SquareMatrix.builder(MAGIC_SQUARE).build();
 
+  private static final int[][] SMALLEST_MAGIC_SQUARE = {{1}};
+  private static final SquareMatrix SMALLEST_MAGIC_SQUARE_MATRIX = SquareMatrix.builder(SMALLEST_MAGIC_SQUARE).build();
+
+  @Test
+  public void magicSum_1x1() {
+    assertThat(MagicSquareChecker.magicSum(1)).isEqualTo(1);
+  }
+
+  @Test
+  public void magicSum_3x3() {
+    assertThat(MagicSquareChecker.magicSum(3)).isEqualTo(15);
+  }
+
+  @Test
+  public void magicSum_4x4() {
+    assertThat(MagicSquareChecker.magicSum(4)).isEqualTo(34);
+  }
+
+  @Test
+  public void magicSum_5x5() {
+    assertThat(MagicSquareChecker.magicSum(5)).isEqualTo(65);
+  }
+
+  @Test
+  public void magicSum_6x6() {
+    assertThat(MagicSquareChecker.magicSum(6)).isEqualTo(111);
+  }
+
+  @Test
+  public void magicSum_7x7() {
+    assertThat(MagicSquareChecker.magicSum(7)).isEqualTo(175);
+  }
+
+  @Test
+  public void magicSum_8x8() {
+    assertThat(MagicSquareChecker.magicSum(8)).isEqualTo(260);
+  }
+
+  @Test
+  public void magicSum_9x9() {
+    assertThat(MagicSquareChecker.magicSum(9)).isEqualTo(369);
+  }
+
   @Test
   public void checkValueRange_uniqGoodRange() {
     assertTrue(MagicSquareChecker.checkValueRange(UNIQ_GOOD_RANGE_MATRIX));
@@ -62,37 +105,42 @@ public class MagicSquareCheckerTest {
   }
 
   @Test
-  public void sumDiagonals_notEqual() {
-    assertThat(MagicSquareChecker.sumDiagonals(DIAGONAL_NOT_EQUAL_MATRIX)).isEqualTo(-1);
+  public void isDiagonalyMagicSum_notEqual() {
+    assertFalse(MagicSquareChecker.isDiagonalyMagicSum(DIAGONAL_NOT_EQUAL_MATRIX));
   }
 
   @Test
-  public void sumDiagonals_magicSquare() {
-    assertThat(MagicSquareChecker.sumDiagonals(MAGIC_SQUARE_MATRIX)).isEqualTo(15);
+  public void isDiagonalyMagicSum_magicSquare() {
+    assertTrue(MagicSquareChecker.isDiagonalyMagicSum(MAGIC_SQUARE_MATRIX));
   }
 
   @Test
-  public void sumRows() {
-    assertThat(MagicSquareChecker.sumDiagonals(MAGIC_SQUARE_MATRIX)).isEqualTo(15);
+  public void isEveryRowMagicSum() {
+    assertTrue(MagicSquareChecker.isEveryRowMagicSum(MAGIC_SQUARE_MATRIX));
   }
 
   @Test
-  public void sumRows_notEqual() {
-    assertThat(MagicSquareChecker.sumDiagonals(ROWS_NOT_EQUAL_MATRIX)).isEqualTo(-1);
+  public void isEveryRowMagicSum_notEqual() {
+    assertFalse(MagicSquareChecker.isEveryRowMagicSum(ROWS_NOT_EQUAL_MATRIX));
   }
 
   @Test
-  public void sumCols() {
-    assertThat(MagicSquareChecker.sumCols(MAGIC_SQUARE_MATRIX)).isEqualTo(15);
+  public void isEveryColMagicSum() {
+    assertTrue(MagicSquareChecker.isEveryColMagicSum(MAGIC_SQUARE_MATRIX));
   }
 
   @Test
-  public void sumCols_notEqual() {
-    assertThat(MagicSquareChecker.sumCols(COLS_NOT_EQUAL_MATRIX)).isEqualTo(-1);
+  public void isEveryColMagicSum_notEqual() {
+    assertFalse(MagicSquareChecker.isEveryColMagicSum(COLS_NOT_EQUAL_MATRIX));
   }
 
   @Test
   public void isMagicSquare() {
     assertTrue(MagicSquareChecker.isMagicSquare(MAGIC_SQUARE_MATRIX));
+  }
+
+  @Test
+  public void isMagicSquare_1x1() {
+    assertTrue(MagicSquareChecker.isMagicSquare(SMALLEST_MAGIC_SQUARE_MATRIX));
   }
 }

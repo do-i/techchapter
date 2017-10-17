@@ -5,7 +5,7 @@ import java.util.Arrays;
 import com.google.common.annotations.VisibleForTesting;
 
 /**
- *
+ * Immutable class that represents a square matrix of integers.
  */
 public class SquareMatrix {
   private final int[][] matrix;
