@@ -1,6 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+sourceSets {
+    test {
+        // Compiled Java classes should use this directory
+        java.outputDir = file('out/test/classes')
+    }
+}
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
