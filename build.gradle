@@ -7,8 +7,6 @@ sourceSets {
         java.outputDir = file('out/test/classes')
     }
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 mainClassName = 'com.djd.fun.tachchapter.demo014swing.BasicSwingSandbox'
 

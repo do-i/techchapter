@@ -13,7 +13,7 @@ public class MergeSort {
     if (input.length <= 1) {
       return;
     }
-    int mid = input.length / 2;
+    var mid = input.length / 2;
     int[] left = createSubArray(input, 0, mid);
     int[] right = createSubArray(input, mid, input.length);
 
