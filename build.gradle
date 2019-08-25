@@ -8,7 +8,7 @@ sourceSets {
     }
 }
 
-mainClassName = 'com.djd.fun.tachchapter.demo014swing.BasicSwingSandbox'
+mainClassName = 'com.djd.fun.techchapter.demo014swing.BasicSwingSandbox'
 
 repositories {
     mavenCentral()
