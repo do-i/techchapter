@@ -1,10 +1,5 @@
 package com.djd.fun.techchapter.hanoi;
 
-import com.google.common.annotations.VisibleForTesting;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import static com.djd.fun.techchapter.hanoi.States.Move.LEFT_TO_MIDDLE;
 import static com.djd.fun.techchapter.hanoi.States.Move.LEFT_TO_RIGHT;
 import static com.djd.fun.techchapter.hanoi.States.Move.MIDDLE_TO_LEFT;
@@ -13,19 +8,23 @@ import static com.djd.fun.techchapter.hanoi.States.Move.RIGHT_TO_LEFT;
 import static com.djd.fun.techchapter.hanoi.States.Move.RIGHT_TO_MIDDLE;
 import static com.djd.fun.techchapter.hanoi.States.isValidMove;
 
+import com.google.common.annotations.VisibleForTesting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public abstract class Movement {
   private static final Logger log = LoggerFactory.getLogger(Movement.class);
 
   /**
-   * This number to determine when to give up.
-   * minimum moves to solve: 2^n − 1 where n is numOfDisks
+   * This number to determine when to give up. minimum moves to solve: 2^n − 1 where n is numOfDisks
    */
   private final int maxMoves;
+
   private final States states;
   protected final Hanoi hanoi;
 
   protected Movement(int numOfDisks) {
-    this.maxMoves = (int)(Math.pow(2, numOfDisks) * 1.5);
+    this.maxMoves = (int) (Math.pow(2, numOfDisks) * 1.5);
     this.hanoi = new Hanoi(numOfDisks);
     this.states = new States();
     // Call this method after states is initialized.
@@ -53,11 +52,12 @@ public abstract class Movement {
   }
 
   public void debugPrint() {
-//    states.debugPrint();
+    //    states.debugPrint();
     log.info("Number of moves:{}", states.size());
   }
 
-  @VisibleForTesting State getCurrentState() {
+  @VisibleForTesting
+  State getCurrentState() {
     return states.getLatestState();
   }
 
@@ -68,8 +68,8 @@ public abstract class Movement {
     }
 
     /**
-     * Performs the following set of moves if the number of disks is odd.
-     * L -> R (R -> L), L -> M (M -> L), R -> M (M -> R)
+     * Performs the following set of moves if the number of disks is odd. L -> R (R -> L), L -> M (M
+     * -> L), R -> M (M -> R)
      */
     @Override
     public void move() {
@@ -89,8 +89,8 @@ public abstract class Movement {
     }
 
     /**
-     * Performs the following set of moves if the number of disks is even.
-     * L -> M (M -> L), L -> R (R -> L), R -> M (M -> R)
+     * Performs the following set of moves if the number of disks is even. L -> M (M -> L), L -> R
+     * (R -> L), R -> M (M -> R)
      */
     @Override
     public void move() {

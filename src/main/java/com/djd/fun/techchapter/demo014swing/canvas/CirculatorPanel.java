@@ -1,5 +1,8 @@
 package com.djd.fun.techchapter.demo014swing.canvas;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Component;
@@ -7,7 +10,6 @@ import java.awt.Graphics;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import javax.annotation.RegEx;
 import javax.swing.JPanel;
 import javax.swing.event.DocumentEvent;
@@ -15,11 +17,6 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Splitter;
-import com.google.common.collect.Lists;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,8 +65,10 @@ public class CirculatorPanel extends JPanel implements CommandResponder {
       String inputValue = doc.getText(0, doc.getLength());
       if (NUMBERS.matcher(inputValue).matches()) {
         log.info("inputValue: {}", inputValue);
-        numbers = ON_SPACES.splitToList(inputValue).stream()
-            .map(Integer::parseInt).collect(Collectors.toList());
+        numbers =
+            ON_SPACES.splitToList(inputValue).stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
         repaint();
       }
     } catch (BadLocationException e) {

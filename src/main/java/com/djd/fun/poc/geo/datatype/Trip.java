@@ -1,8 +1,7 @@
 package com.djd.fun.poc.geo.datatype;
 
-import java.util.Objects;
-
 import com.google.common.base.MoreObjects;
+import java.util.Objects;
 
 /**
  * Immutable data type represents a trip between two {@link Location}s
@@ -11,17 +10,14 @@ import com.google.common.base.MoreObjects;
  * @since 9/27/16
  */
 public class Trip {
-  /**
-   * number of incremental points between from & to locations
-   */
+  /** number of incremental points between from & to locations */
   private static final int DEFAULT_DROP_POINTS = 18;
+
   private final Location from;
   private final Location to;
   private final HaversineDistance distance;
   private final int numOfDropPoints;
-  /**
-   * interval in meters between from location and to location
-   */
+  /** interval in meters between from location and to location */
   private final double intervalMeter;
 
   private Trip(Location from, Location to) {
@@ -44,9 +40,7 @@ public class Trip {
     return to;
   }
 
-  /**
-   * @return interval in meter between drop points
-   */
+  /** @return interval in meter between drop points */
   public double getIntervalMeter() {
     return intervalMeter;
   }
@@ -63,22 +57,21 @@ public class Trip {
     return new Trip(from, to);
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Trip trip = (Trip)o;
-    return Objects.equals(from, trip.from) &&
-        Objects.equals(to, trip.to);
+    Trip trip = (Trip) o;
+    return Objects.equals(from, trip.from) && Objects.equals(to, trip.to);
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return Objects.hash(from, to);
   }
 
-  @Override public String toString() {
-    return MoreObjects.toStringHelper(this)
-        .add("from", from)
-        .add("to", to)
-        .toString();
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(this).add("from", from).add("to", to).toString();
   }
 }

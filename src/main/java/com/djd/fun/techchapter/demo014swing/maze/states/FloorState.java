@@ -1,12 +1,11 @@
 package com.djd.fun.techchapter.demo014swing.maze.states;
 
-import java.util.Collection;
-import java.util.Set;
-
 import com.djd.fun.techchapter.demo014swing.maze.models.Floor;
 import com.djd.fun.techchapter.demo014swing.maze.models.Location;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import java.util.Collection;
+import java.util.Set;
 
 public class FloorState {
 

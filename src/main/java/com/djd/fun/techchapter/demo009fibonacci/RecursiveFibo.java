@@ -9,8 +9,8 @@ import java.math.BigInteger;
 public class RecursiveFibo implements Fibonacci {
   /**
    * static method to find out N-th fibonacci number.
-   * <p>
-   * Note: Time complexity of recursive implementation is O(2^N)
+   *
+   * <p>Note: Time complexity of recursive implementation is O(2^N)
    *
    * @param n valid range 0 and 16
    * @return Nth fibonacci number

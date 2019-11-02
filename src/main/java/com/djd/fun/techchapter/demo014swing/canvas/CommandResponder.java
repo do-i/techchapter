@@ -1,7 +1,6 @@
 package com.djd.fun.techchapter.demo014swing.canvas;
 
 import java.awt.Component;
-
 import javax.swing.text.Document;
 
 public interface CommandResponder {
@@ -9,7 +8,5 @@ public interface CommandResponder {
 
   Document getDocument();
 
-  default void init() {
-
-  }
+  default void init() {}
 }

@@ -2,6 +2,7 @@ package com.djd.fun.techchapter.demo010stock;
 
 /**
  * First attempt try out every possible combination.
+ *
  * @author JGD
  * @since 10/23/16
  */

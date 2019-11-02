@@ -1,28 +1,27 @@
 package com.djd.fun.techchapter.demo003threads;
 
+import com.google.common.base.Throwables;
+import com.google.common.collect.ImmutableList;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import com.google.common.base.Throwables;
-import com.google.common.collect.ImmutableList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This class is to demo how to use jdk8 concurrency API
- * <p>
- * Part 5) jdk8's work-stealing thread pool executor with {@link java.util.concurrent.Callable} tasks
- * using {@link ExecutorService#invokeAny(Collection)}.
- * <p>
- * Note: work-stealing thread pool utilize computer's available cores to maximize parallelism.
- * <p>
- * {@link ExecutorService#invokeAny(Collection)} will block main thread until first {@link Callable}
- * is completed.
+ *
+ * <p>Part 5) jdk8's work-stealing thread pool executor with {@link java.util.concurrent.Callable}
+ * tasks using {@link ExecutorService#invokeAny(Collection)}.
+ *
+ * <p>Note: work-stealing thread pool utilize computer's available cores to maximize parallelism.
+ *
+ * <p>{@link ExecutorService#invokeAny(Collection)} will block main thread until first {@link
+ * Callable} is completed.
+ *
  * <p>
  *
  * @author JGD
@@ -39,8 +38,14 @@ public class Demo003e {
       service = Executors.newWorkStealingPool();
 
       // As soon as one task is done rest of tasks are cancelled.
-      String result = service.invokeAny(ImmutableList.of(
-          makeTask("A", 12), makeTask("B", 15), makeTask("C", 13), makeTask("D", 1), makeTask("E", 1)));
+      String result =
+          service.invokeAny(
+              ImmutableList.of(
+                  makeTask("A", 12),
+                  makeTask("B", 15),
+                  makeTask("C", 13),
+                  makeTask("D", 1),
+                  makeTask("E", 1)));
       log.info("Winner is Task {}", result);
     } catch (InterruptedException | ExecutionException e) {
       log.warn("task is interrupted");

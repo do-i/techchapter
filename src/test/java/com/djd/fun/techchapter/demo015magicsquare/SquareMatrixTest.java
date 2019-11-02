@@ -1,11 +1,9 @@
 package com.djd.fun.techchapter.demo015magicsquare;
 
 import com.google.common.testing.EqualsTester;
-
 import org.junit.Test;
 
-/**
- */
+/** */
 public class SquareMatrixTest {
 
   @Test

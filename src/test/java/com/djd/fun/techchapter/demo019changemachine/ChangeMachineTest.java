@@ -1,16 +1,14 @@
 package com.djd.fun.techchapter.demo019changemachine;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import org.junit.Test;
 
 public class ChangeMachineTest {
 
   @Test
   public void pay() {
-    assertThat(ChangeMachine.pay(1.08, 2.00))
-        .isEqualTo(new ChangeMachine.Changes(3,1,1,2));
+    assertThat(ChangeMachine.pay(1.08, 2.00)).isEqualTo(new ChangeMachine.Changes(3, 1, 1, 2));
   }
 
   @Test(expected = IllegalArgumentException.class)

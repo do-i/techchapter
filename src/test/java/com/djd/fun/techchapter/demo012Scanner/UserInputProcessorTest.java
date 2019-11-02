@@ -1,9 +1,8 @@
 package com.djd.fun.techchapter.demo012Scanner;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -15,8 +14,7 @@ public class UserInputProcessorTest {
   public void inputStringWithPrompt() {
     String userInput = "I am fine. Thank you.";
     UserInputProcessor userInputProcessor = new UserInputProcessor(userInput);
-    assertThat(userInputProcessor.inputStringWithPrompt("How are you?"))
-        .isEqualTo(userInput);
+    assertThat(userInputProcessor.inputStringWithPrompt("How are you?")).isEqualTo(userInput);
   }
 
   @Test
@@ -27,5 +25,4 @@ public class UserInputProcessorTest {
     assertThat(userInputProcessor.inputTwoStringsWithPrompt("How are you?", "Where are you from?"))
         .isEqualTo(expected);
   }
-
 }

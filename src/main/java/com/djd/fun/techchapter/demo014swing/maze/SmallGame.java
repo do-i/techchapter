@@ -1,5 +1,19 @@
 package com.djd.fun.techchapter.demo014swing.maze;
 
+import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintDownstairs;
+import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintEnemy;
+import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintGem;
+import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintToken;
+import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintUpstairs;
+import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintWall;
+
+import com.djd.fun.techchapter.demo014swing.canvas.Abstract2DPanel;
+import com.djd.fun.techchapter.demo014swing.maze.models.Location;
+import com.djd.fun.techchapter.demo014swing.maze.models.MoreColors;
+import com.djd.fun.techchapter.demo014swing.maze.models.Tile;
+import com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper;
+import com.djd.fun.techchapter.demo014swing.maze.states.FloorStates;
+import com.google.common.collect.Sets;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -10,34 +24,19 @@ import java.awt.event.KeyListener;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
-
-import com.djd.fun.techchapter.demo014swing.canvas.Abstract2DPanel;
-import com.djd.fun.techchapter.demo014swing.maze.models.Location;
-import com.djd.fun.techchapter.demo014swing.maze.models.MoreColors;
-import com.djd.fun.techchapter.demo014swing.maze.models.Tile;
-import com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper;
-import com.djd.fun.techchapter.demo014swing.maze.states.FloorStates;
-import com.google.common.collect.Sets;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintGem;
-import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintEnemy;
-import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintWall;
-import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintToken;
-import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintDownstairs;
-import static com.djd.fun.techchapter.demo014swing.maze.shapes.ShapeHelper.paintUpstairs;
 
 public class SmallGame extends Abstract2DPanel {
 
   private static final Logger log = LoggerFactory.getLogger(SmallGame.class);
-  private static final int[] DIRECTIONS = {KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT};
+  private static final int[] DIRECTIONS = {
+    KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT
+  };
   private static final int TILE_SIZE = 21; // Note Use even number to avoid loss of decimal
 
   private final KeyListener keyListener;
@@ -78,7 +77,8 @@ public class SmallGame extends Abstract2DPanel {
     paintTiles(g);
     paintPlayer(g);
     paintEnemies(g);
-    requestFocusInWindow(); // NOTE: This enables KeyListener on JPanel. This has to be called after JFrame is set to visible
+    requestFocusInWindow(); // NOTE: This enables KeyListener on JPanel. This has to be called after
+                            // JFrame is set to visible
   }
 
   private void checkGameStatus() {
@@ -152,11 +152,13 @@ public class SmallGame extends Abstract2DPanel {
 
   private void paintPlayer(Graphics2D g) {
     Color color = invincible.get() ? MoreColors.LIGHT.YELLOW : MoreColors.NEON.BLUE;
-    ShapeHelper.paintPlayer(g, currentPlayerLocation.row, currentPlayerLocation.col, color, TILE_SIZE);
+    ShapeHelper.paintPlayer(
+        g, currentPlayerLocation.row, currentPlayerLocation.col, color, TILE_SIZE);
   }
 
   private void paintEnemies(Graphics2D g) {
-    floorStates.getEnemyLocations()
+    floorStates
+        .getEnemyLocations()
         .forEach(location -> paintEnemy(g, location.row, location.col, Color.RED, TILE_SIZE));
   }
 
@@ -206,7 +208,6 @@ public class SmallGame extends Abstract2DPanel {
       }
       repaint();
       checkGameStatus();
-
     }
   }
 
@@ -227,8 +228,8 @@ public class SmallGame extends Abstract2DPanel {
       Set<Location> destinations = Sets.newHashSet();
       // Move locations of enemies
       for (Location location : floorStates.getEnemyLocations()) {
-        Location destination = getTargetLocation(
-            DIRECTIONS[random.nextInt(DIRECTIONS.length)], location);
+        Location destination =
+            getTargetLocation(DIRECTIONS[random.nextInt(DIRECTIONS.length)], location);
         if (destinations.contains(destination) || floorStates.isEnemyAt(destination)) {
           // Enemy cannot move to a location another enemy is already on.
           destinations.add(location);
@@ -244,17 +245,20 @@ public class SmallGame extends Abstract2DPanel {
 
   private class MyAncestorListener implements AncestorListener {
 
-    @Override public void ancestorAdded(AncestorEvent event) {
+    @Override
+    public void ancestorAdded(AncestorEvent event) {
       invincibleTimer.restart();
       emenyTimer.restart();
     }
 
-    @Override public void ancestorRemoved(AncestorEvent event) {
+    @Override
+    public void ancestorRemoved(AncestorEvent event) {
       invincibleTimer.stop();
       emenyTimer.stop();
     }
 
-    @Override public void ancestorMoved(AncestorEvent event) {
+    @Override
+    public void ancestorMoved(AncestorEvent event) {
       log.info("ancestorMoved");
     }
   }

@@ -1,12 +1,11 @@
 package com.djd.fun.techchapter.demo007regex;
 
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
-
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 /**
  * Count unique words
@@ -26,10 +25,7 @@ public class RegExSplit {
       return ImmutableMap.of();
     }
     String[] words = sentences.split("[\\.\\s',:]");
-    Stream.of(words)
-        .filter(word -> !word.isEmpty())
-        .map(String::toLowerCase)
-        .forEach(this::count);
+    Stream.of(words).filter(word -> !word.isEmpty()).map(String::toLowerCase).forEach(this::count);
 
     return wordCounts;
   }

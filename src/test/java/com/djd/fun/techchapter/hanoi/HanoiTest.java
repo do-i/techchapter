@@ -1,8 +1,5 @@
 package com.djd.fun.techchapter.hanoi;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import static com.djd.fun.techchapter.hanoi.States.Move.LEFT_TO_MIDDLE;
 import static com.djd.fun.techchapter.hanoi.States.Move.LEFT_TO_RIGHT;
 import static com.djd.fun.techchapter.hanoi.States.Move.MIDDLE_TO_LEFT;
@@ -10,6 +7,9 @@ import static com.djd.fun.techchapter.hanoi.States.Move.MIDDLE_TO_RIGHT;
 import static com.djd.fun.techchapter.hanoi.States.Move.RIGHT_TO_LEFT;
 import static com.djd.fun.techchapter.hanoi.States.Move.RIGHT_TO_MIDDLE;
 import static com.google.common.truth.Truth.assertThat;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class HanoiTest {
 

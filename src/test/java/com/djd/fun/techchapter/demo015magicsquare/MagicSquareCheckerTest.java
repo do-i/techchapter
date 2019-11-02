@@ -1,38 +1,45 @@
 package com.djd.fun.techchapter.demo015magicsquare;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- */
+import org.junit.Test;
+
+/** */
 public class MagicSquareCheckerTest {
 
   private static final int[][] UNIQ_GOOD_RANGE = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-  private static final SquareMatrix UNIQ_GOOD_RANGE_MATRIX = SquareMatrix.builder(UNIQ_GOOD_RANGE).build();
+  private static final SquareMatrix UNIQ_GOOD_RANGE_MATRIX =
+      SquareMatrix.builder(UNIQ_GOOD_RANGE).build();
 
   private static final int[][] UNIQ_BAD_RANGE = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-  private static final SquareMatrix UNIQ_BAD_RANGE_MATRIX = SquareMatrix.builder(UNIQ_BAD_RANGE).build();
+  private static final SquareMatrix UNIQ_BAD_RANGE_MATRIX =
+      SquareMatrix.builder(UNIQ_BAD_RANGE).build();
 
   private static final int[][] NOT_UNIQ_GOOD_RANGE = {{1, 2, 3}, {4, 5, 6}, {7, 8, 8}};
-  private static final SquareMatrix NOT_UNIQ_GOOD_RANGE_MATRIX = SquareMatrix.builder(NOT_UNIQ_GOOD_RANGE).build();
+  private static final SquareMatrix NOT_UNIQ_GOOD_RANGE_MATRIX =
+      SquareMatrix.builder(NOT_UNIQ_GOOD_RANGE).build();
 
   private static final int[][] DIAGONAL_NOT_EQUAL = {{7, 2, 6}, {9, 5, 1}, {4, 3, 8}};
-  private static final SquareMatrix DIAGONAL_NOT_EQUAL_MATRIX = SquareMatrix.builder(DIAGONAL_NOT_EQUAL).build();
+  private static final SquareMatrix DIAGONAL_NOT_EQUAL_MATRIX =
+      SquareMatrix.builder(DIAGONAL_NOT_EQUAL).build();
 
   private static final int[][] ROWS_NOT_EQUAL = {{4, 7, 6}, {9, 5, 1}, {2, 3, 8}};
-  private static final SquareMatrix ROWS_NOT_EQUAL_MATRIX = SquareMatrix.builder(ROWS_NOT_EQUAL).build();
+  private static final SquareMatrix ROWS_NOT_EQUAL_MATRIX =
+      SquareMatrix.builder(ROWS_NOT_EQUAL).build();
 
   private static final int[][] COLS_NOT_EQUAL = {{2, 7, 6}, {9, 5, 1}, {3, 4, 8}};
-  private static final SquareMatrix COLS_NOT_EQUAL_MATRIX = SquareMatrix.builder(COLS_NOT_EQUAL).build();
+  private static final SquareMatrix COLS_NOT_EQUAL_MATRIX =
+      SquareMatrix.builder(COLS_NOT_EQUAL).build();
 
   private static final int[][] MAGIC_SQUARE = {{2, 7, 6}, {9, 5, 1}, {4, 3, 8}};
-  private static final SquareMatrix MAGIC_SQUARE_MATRIX = SquareMatrix.builder(MAGIC_SQUARE).build();
+  private static final SquareMatrix MAGIC_SQUARE_MATRIX =
+      SquareMatrix.builder(MAGIC_SQUARE).build();
 
   private static final int[][] SMALLEST_MAGIC_SQUARE = {{1}};
-  private static final SquareMatrix SMALLEST_MAGIC_SQUARE_MATRIX = SquareMatrix.builder(SMALLEST_MAGIC_SQUARE).build();
+  private static final SquareMatrix SMALLEST_MAGIC_SQUARE_MATRIX =
+      SquareMatrix.builder(SMALLEST_MAGIC_SQUARE).build();
 
   @Test
   public void magicSum_1x1() {

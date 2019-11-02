@@ -3,9 +3,7 @@ package com.djd.fun.techchapter.demo001;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Generic Box takes item of type T
- */
+/** Generic Box takes item of type T */
 public class Box<T extends Number> {
   private final List<T> items;
 

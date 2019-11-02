@@ -1,13 +1,11 @@
 package com.djd.fun.techchapter.demo014swing;
 
+import com.djd.fun.techchapter.demo014swing.actions.CloseAction;
 import java.awt.Font;
-
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
-
-import com.djd.fun.techchapter.demo014swing.actions.CloseAction;
 
 public class MyMenuBar extends JMenuBar {
 

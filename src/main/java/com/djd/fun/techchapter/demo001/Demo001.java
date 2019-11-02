@@ -1,10 +1,8 @@
 package com.djd.fun.techchapter.demo001;
 
-/**
- * This demo class shows type erasure effects
- */
+/** This demo class shows type erasure effects */
 public class Demo001 {
-  public static void main(String [] params) {
+  public static void main(String[] params) {
     Box<Number> box = new Box();
     box.addItem(5);
     Box<Integer> boxi = new Box();

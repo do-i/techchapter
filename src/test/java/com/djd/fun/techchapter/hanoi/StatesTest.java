@@ -1,10 +1,9 @@
 package com.djd.fun.techchapter.hanoi;
 
-import com.google.common.collect.ImmutableList;
-
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
+
+import com.google.common.collect.ImmutableList;
+import org.junit.Test;
 
 public class StatesTest {
 
@@ -30,9 +29,10 @@ public class StatesTest {
   public void isValidMove_toEmpty() {
     assertThat(States.isValidMove(ImmutableList.of(DISK_1), ImmutableList.of())).isTrue();
   }
-//
-//  @Test
-//  public void mm() {
-//    States.State state1 = new States.State(ImmutableMap.of(States.PegName.LEFT, ImmutableList.of(DISK_1)));
-//  }
+  //
+  //  @Test
+  //  public void mm() {
+  //    States.State state1 = new States.State(ImmutableMap.of(States.PegName.LEFT,
+  // ImmutableList.of(DISK_1)));
+  //  }
 }

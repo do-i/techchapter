@@ -1,16 +1,15 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.techchapter.demo014swing.maze.models;
 
-import com.djd.fun.util.ExpectData;
-import com.djd.fun.util.PrintStreamTestHelper;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+
+import com.djd.fun.util.ExpectData;
+import com.djd.fun.util.PrintStreamTestHelper;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -18,33 +17,36 @@ import static org.junit.Assert.assertTrue;
  */
 public class FloorTest {
   private static final String[][] BIG_FLOOR_PLAN = {
-      {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
-      {"W", "W", "W", "W", "W", "H", "H", "H", "P", "H"},
-      {"W", "W", "W", "W", "W", "H", "H", "H", "H", "H"},
-      {"W", "W", "W", "W", "W", "H", "W", "W", "W", "W"},
-      {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
-      {"W", "W", "W", "W", "W", "H", "W", "W", "W", "W"},
-      {"W", "H", "T", "H", "W", "H", "H", "W", "W", "W"},
-      {"W", "W", "H", "W", "W", "W", "H", "H", "H", "H"},
-      {"W", "W", "T", "W", "W", "W", "W", "W", "W", "H"},
-      {"W", "W", "W", "W", "H", "H", "H", "H", "W", "H"},
-      {"W", "W", "T", "H", "H", "T", "T", "H", "H", "H"},
-      {"W", "W", "W", "W", "H", "H", "H", "H", "W", "H"},
-      {"W", "W", "W", "W", "W", "W", "W", "W", "W", "H"},
-      {"W", "W", "W", "W", "W", "H", "H", "H", "H", "H"},
-      {"W", "W", "W", "W", "W", "H", "T", "H", "H", "H"},
-      {"W", "H", "H", "H", "W", "H", "H", "H", "H", "H"},
-      {"W", "H", "T", "H", "W", "W", "W", "W", "W", "H"},
-      {"W", "H", "H", "H", "H", "H", "H", "H", "H", "H"}};
+    {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
+    {"W", "W", "W", "W", "W", "H", "H", "H", "P", "H"},
+    {"W", "W", "W", "W", "W", "H", "H", "H", "H", "H"},
+    {"W", "W", "W", "W", "W", "H", "W", "W", "W", "W"},
+    {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
+    {"W", "W", "W", "W", "W", "H", "W", "W", "W", "W"},
+    {"W", "H", "T", "H", "W", "H", "H", "W", "W", "W"},
+    {"W", "W", "H", "W", "W", "W", "H", "H", "H", "H"},
+    {"W", "W", "T", "W", "W", "W", "W", "W", "W", "H"},
+    {"W", "W", "W", "W", "H", "H", "H", "H", "W", "H"},
+    {"W", "W", "T", "H", "H", "T", "T", "H", "H", "H"},
+    {"W", "W", "W", "W", "H", "H", "H", "H", "W", "H"},
+    {"W", "W", "W", "W", "W", "W", "W", "W", "W", "H"},
+    {"W", "W", "W", "W", "W", "H", "H", "H", "H", "H"},
+    {"W", "W", "W", "W", "W", "H", "T", "H", "H", "H"},
+    {"W", "H", "H", "H", "W", "H", "H", "H", "H", "H"},
+    {"W", "H", "T", "H", "W", "W", "W", "W", "W", "H"},
+    {"W", "H", "H", "H", "H", "H", "H", "H", "H", "H"}
+  };
   private static final String[][] FLOOR_PLAN = {
-      {"H", "P"},
-      {"W", "W"},
-      {"W", "H"}};
+    {"H", "P"},
+    {"W", "W"},
+    {"W", "H"}
+  };
 
   private static final String[][] THREE_BY_THREE_HOLLOW = {
-      {"H", "H", "H"},
-      {"H", "P", "H"},
-      {"H", "H", "H"}};
+    {"H", "H", "H"},
+    {"H", "P", "H"},
+    {"H", "H", "H"}
+  };
   private static final Location PLAYER_LOCATION = Location.of(1, 1);
   private PrintStreamTestHelper helper;
   private Floor floor;
@@ -100,7 +102,6 @@ public class FloorTest {
   public void getWestLocation_moved() {
     assertEquals(Location.of(1, 0), floor3x3.getWestLocation(PLAYER_LOCATION));
   }
-
 
   @Test
   public void isValidIndeces_valid() {

@@ -1,8 +1,8 @@
 package com.djd.fun.techchapter.demo017tries;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
+
+import org.junit.Test;
 
 public class TrieTest {
 

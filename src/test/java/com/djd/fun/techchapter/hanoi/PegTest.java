@@ -1,11 +1,10 @@
 package com.djd.fun.techchapter.hanoi;
 
-import java.util.Optional;
+import static com.google.common.truth.Truth.assertThat;
 
+import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 public class PegTest {
 

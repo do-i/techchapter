@@ -1,18 +1,18 @@
 package com.djd.fun.techchapter.demo004race;
 
+import static com.djd.fun.techchapter.demo003threads.Threads.stop;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.djd.fun.techchapter.demo003threads.Threads.stop;
-
 /**
  * Race-condition with non-atomic int.
- * <p>
- * Run this program, you will see non-deterministic count.
+ *
+ * <p>Run this program, you will see non-deterministic count.
+ *
  * <pre>
  * [main] INFO com.djd.fun.techchapter.demo004race.Demo004 - count=3706
  * </pre>
@@ -38,16 +38,12 @@ public class Demo004 {
     // mutable variable
     private int counter;
 
-    /**
-     * Cause race condition
-     */
+    /** Cause race condition */
     public void increment() {
       counter++;
     }
 
-    /**
-     * prevent race condition
-     */
+    /** prevent race condition */
     public void incrementSync() {
       synchronized (Demo004.class) {
         counter++;

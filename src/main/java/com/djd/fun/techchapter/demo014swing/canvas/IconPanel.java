@@ -1,18 +1,16 @@
 package com.djd.fun.techchapter.demo014swing.canvas;
 
+import com.google.common.io.Resources;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
-import com.google.common.io.Resources;
 
 public class IconPanel extends JPanel implements CommandResponder {
 
@@ -29,8 +27,8 @@ public class IconPanel extends JPanel implements CommandResponder {
   @Override
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
-    Image scaledImage = image.getScaledInstance(getWidth(),getHeight(), Image.SCALE_FAST);
-    ((Graphics2D)g).drawImage(scaledImage, null, null);
+    Image scaledImage = image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_FAST);
+    ((Graphics2D) g).drawImage(scaledImage, null, null);
   }
 
   @Override

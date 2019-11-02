@@ -1,15 +1,14 @@
 package com.djd.fun.techchapter.demo014swing.maze.models;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvParser;
 import com.google.common.base.Throwables;
 import com.google.common.io.Resources;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
 
 /**
  * @author JGD

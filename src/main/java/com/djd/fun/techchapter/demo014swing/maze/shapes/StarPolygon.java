@@ -2,9 +2,7 @@ package com.djd.fun.techchapter.demo014swing.maze.shapes;
 
 import com.djd.fun.util.MorePreconditions;
 
-/**
- * This class was created based on the implementations found in http://java-sl.com/shapes.html
- */
+/** This class was created based on the implementations found in http://java-sl.com/shapes.html */
 public class StarPolygon extends BasePolygon {
 
   public StarPolygon(Builder builder) {
@@ -12,7 +10,7 @@ public class StarPolygon extends BasePolygon {
   }
 
   public static StarPolygon with(int row, int col, int size) {
-    return new Builder(size).row(row).col(col).r(size/2).innerR(size/4).build();
+    return new Builder(size).row(row).col(col).r(size / 2).innerR(size / 4).build();
   }
 
   private static class Builder {
@@ -27,6 +25,7 @@ public class StarPolygon extends BasePolygon {
     private int[] xCoordinates;
     private int[] yCoordinates;
     private Triangle.Direction direction = Triangle.Direction.UP;
+
     public Builder(int size) {
       MorePreconditions.checkPositiveIntegers(size);
       this.size = size;
@@ -55,6 +54,7 @@ public class StarPolygon extends BasePolygon {
 
     /**
      * Helper conversion setter for y
+     *
      * @param row
      * @return
      */
@@ -65,6 +65,7 @@ public class StarPolygon extends BasePolygon {
 
     /**
      * Helper conversion setter for x
+     *
      * @param col
      * @return
      */
@@ -79,9 +80,9 @@ public class StarPolygon extends BasePolygon {
       double angle = startAngle;
       double innerAngle = startAngle + Math.PI / vertexCount;
       for (int i = 0; i < vertexCount; i++) {
-        res[i * 2] = (int)Math.round(r * Math.cos(angle)) + x;
+        res[i * 2] = (int) Math.round(r * Math.cos(angle)) + x;
         angle += addAngle;
-        res[i * 2 + 1] = (int)Math.round(innerR * Math.cos(innerAngle)) + x;
+        res[i * 2 + 1] = (int) Math.round(innerR * Math.cos(innerAngle)) + x;
         innerAngle += addAngle;
       }
       return res;
@@ -93,9 +94,9 @@ public class StarPolygon extends BasePolygon {
       double angle = startAngle;
       double innerAngle = startAngle + Math.PI / vertexCount;
       for (int i = 0; i < vertexCount; i++) {
-        res[i * 2] = (int)Math.round(r * Math.sin(angle)) + y;
+        res[i * 2] = (int) Math.round(r * Math.sin(angle)) + y;
         angle += addAngle;
-        res[i * 2 + 1] = (int)Math.round(innerR * Math.sin(innerAngle)) + y;
+        res[i * 2 + 1] = (int) Math.round(innerR * Math.sin(innerAngle)) + y;
         innerAngle += addAngle;
       }
       return res;

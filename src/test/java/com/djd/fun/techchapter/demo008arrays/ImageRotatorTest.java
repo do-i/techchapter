@@ -1,12 +1,10 @@
 package com.djd.fun.techchapter.demo008arrays;
 
-import java.util.Arrays;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import java.util.Arrays;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -18,18 +16,20 @@ public class ImageRotatorTest {
 
   @Before
   public void setUp() {
-    image = new int[][]{
-        {1, 2, 3, 4},
-        {1, 2, 3, 4},
-        {1, 2, 3, 4},
-        {1, 2, 3, 4}
-    };
-    expected = new int[][]{
-        {1, 1, 1, 1},
-        {2, 2, 2, 2},
-        {3, 3, 3, 3},
-        {4, 4, 4, 4}
-    };
+    image =
+        new int[][] {
+          {1, 2, 3, 4},
+          {1, 2, 3, 4},
+          {1, 2, 3, 4},
+          {1, 2, 3, 4}
+        };
+    expected =
+        new int[][] {
+          {1, 1, 1, 1},
+          {2, 2, 2, 2},
+          {3, 3, 3, 3},
+          {4, 4, 4, 4}
+        };
   }
 
   @Test
@@ -52,17 +52,16 @@ public class ImageRotatorTest {
     ImageRotator.rotateInplace90(null);
   }
 
-
   @Test
   public void rotateInplace90_emptyImage_error() {
-     int[][] payload = new int[][]{};
+    int[][] payload = new int[][] {};
     ImageRotator.rotateInplace90(payload);
     assertThat(payload).hasLength(0);
   }
 
   @Test
   public void rotateInplace90_1x1Image() {
-    int[][] payload = new int[][]{{8}};
+    int[][] payload = new int[][] {{8}};
     ImageRotator.rotateInplace90(payload);
     assertThat(payload).hasLength(1);
     assertThat(payload[0][0]).isEqualTo(8);
@@ -70,37 +69,48 @@ public class ImageRotatorTest {
 
   @Test
   public void rotateInplace90_2x2Image() {
-    int[][] payload = new int[][]{
-        {1, 2},
-        {3, 4}
-    };
+    int[][] payload =
+        new int[][] {
+          {1, 2},
+          {3, 4}
+        };
     ImageRotator.rotateInplace90(payload);
-    assertThat(Arrays.deepEquals(payload, new int[][]{
-        {3, 1},
-        {4, 2}
-    })).isTrue();
+    assertThat(
+            Arrays.deepEquals(
+                payload,
+                new int[][] {
+                  {3, 1},
+                  {4, 2}
+                }))
+        .isTrue();
   }
 
   @Test
   public void rotateInplace90_3x3Image() {
-    int[][] payload = new int[][]{
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
+    int[][] payload =
+        new int[][] {
+          {1, 2, 3},
+          {4, 5, 6},
+          {7, 8, 9}
+        };
     ImageRotator.rotateInplace90(payload);
-    assertThat(Arrays.deepEquals(payload, new int[][]{
-        {7, 4, 1},
-        {8, 5, 2},
-        {9, 6, 3}
-    })).isTrue();
+    assertThat(
+            Arrays.deepEquals(
+                payload,
+                new int[][] {
+                  {7, 4, 1},
+                  {8, 5, 2},
+                  {9, 6, 3}
+                }))
+        .isTrue();
   }
 
   private static void print(int[][] image) {
     Arrays.stream(image)
-        .forEach(row -> {
-          Arrays.stream(row).forEach(System.out::print);
-          System.out.println();
-        });
+        .forEach(
+            row -> {
+              Arrays.stream(row).forEach(System.out::print);
+              System.out.println();
+            });
   }
 }

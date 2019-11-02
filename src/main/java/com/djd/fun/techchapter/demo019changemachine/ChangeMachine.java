@@ -3,15 +3,11 @@ package com.djd.fun.techchapter.demo019changemachine;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-/**
- * Given dollar amount and cost, calculate changes.
- */
+/** Given dollar amount and cost, calculate changes. */
 public class ChangeMachine {
 
   /**
-   * if cost > payment throw exception
-   * if payment > cost, calculate changes.
-   * 25, 10, 5, 1 cents.
+   * if cost > payment throw exception if payment > cost, calculate changes. 25, 10, 5, 1 cents.
    * Compute how many of each coins need to be returned.
    *
    * @param cost
@@ -31,7 +27,7 @@ public class ChangeMachine {
     if (change >= 1.0) {
       throw new IllegalArgumentException("payment is too much");
     }
-    int remainingCents = (int)(change * 100);
+    int remainingCents = (int) (change * 100);
     int numOf25c = remainingCents / 25;
     remainingCents = remainingCents % 25;
     int numOf10c = remainingCents / 10;
@@ -71,17 +67,19 @@ public class ChangeMachine {
       return numOf1c;
     }
 
-    @Override public boolean equals(Object o) {
+    @Override
+    public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
-      Changes changes = (Changes)o;
-      return numOf25c == changes.numOf25c &&
-          numOf10c == changes.numOf10c &&
-          numOf5c == changes.numOf5c &&
-          numOf1c == changes.numOf1c;
+      Changes changes = (Changes) o;
+      return numOf25c == changes.numOf25c
+          && numOf10c == changes.numOf10c
+          && numOf5c == changes.numOf5c
+          && numOf1c == changes.numOf1c;
     }
 
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
       return Objects.hash(numOf25c, numOf10c, numOf5c, numOf1c);
     }
 

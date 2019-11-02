@@ -1,13 +1,12 @@
 package com.djd.fun.techchapter.demo004race;
 
+import static com.djd.fun.techchapter.demo003threads.Threads.stop;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static com.djd.fun.techchapter.demo003threads.Threads.stop;
 
 /**
  * @author JGD
@@ -41,10 +40,7 @@ public class RaceCondition {
     count++;
   }
 
-  /**
-   * Runnable run method body : task cause race condition
-   * This method prevents race condition
-   */
+  /** Runnable run method body : task cause race condition This method prevents race condition */
   public synchronized void incrementSync() {
     countSync++;
   }

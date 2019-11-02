@@ -1,19 +1,17 @@
 package com.djd.fun.techchapter.demo016;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 16.20 T9: On old cell phones, users typed on a numeric keypad and the phone
- * would provide a list of words that matched these numbers. Each digit mapped
- * to a set of 0-4 letters. Implement an algorithm to return a list of matching
- * words, given a sequence of digits. You are provided a list of valid words
- * (provided in whatever data structure you'd like).
- * The mapping is shown below:
+ * 16.20 T9: On old cell phones, users typed on a numeric keypad and the phone would provide a list
+ * of words that matched these numbers. Each digit mapped to a set of 0-4 letters. Implement an
+ * algorithm to return a list of matching words, given a sequence of digits. You are provided a list
+ * of valid words (provided in whatever data structure you'd like). The mapping is shown below:
+ *
  * <pre><code>
  * 1: []
  * 2: [a,b,c]
@@ -26,12 +24,10 @@ import com.google.common.collect.ImmutableMap;
  * 9: [w,x,y,z]
  * 0: []
  * </code></pre>
- * <p>
- * Example:
- * Input: 8733
- * Output: tree, used
- * <p>
- * from CtCI 6th ed
+ *
+ * <p>Example: Input: 8733 Output: tree, used
+ *
+ * <p>from CtCI 6th ed
  */
 public class T9 {
 
@@ -64,7 +60,6 @@ public class T9 {
           .add(ImmutableList.of('t', 'u', 'v'))
           .add(ImmutableList.of('w', 'x', 'y', 'z'))
           .build();
-
 
   public List<String> toWords(int digits) {
     if (digits < 0) {
@@ -101,7 +96,8 @@ public class T9 {
    * @param digits
    * @return char array representation of digits
    */
-  @VisibleForTesting static char[] toDigitChars(int digits) {
+  @VisibleForTesting
+  static char[] toDigitChars(int digits) {
     return String.valueOf(digits).toCharArray();
   }
 
@@ -109,7 +105,8 @@ public class T9 {
    * @param digit 0-9
    * @return mapped chars
    */
-  @VisibleForTesting static ImmutableList<Character> toLetters(char digit) {
+  @VisibleForTesting
+  static ImmutableList<Character> toLetters(char digit) {
     if (digit >= 0 && digit <= 9) {
       throw new IllegalArgumentException("it is not a valid digit: " + digit);
     }

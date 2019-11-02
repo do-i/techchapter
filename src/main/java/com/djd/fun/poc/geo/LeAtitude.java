@@ -4,7 +4,6 @@ import com.djd.fun.poc.geo.datatype.HaversineDistance;
 import com.djd.fun.poc.geo.datatype.Location;
 import com.djd.fun.poc.geo.datatype.Trip;
 import com.google.common.eventbus.Subscribe;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,9 +31,7 @@ public class LeAtitude {
     currentLocation = originLocation;
   }
 
-  /**
-   * subscriber callback method
-   */
+  /** subscriber callback method */
   @Subscribe
   public void recordCurrentLocationChange(Location currentLocation) {
     this.currentLocation = currentLocation;

@@ -1,12 +1,11 @@
 package com.djd.fun.techchapter.demo014swing.maze.models;
 
-import java.util.Arrays;
-
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import java.util.Arrays;
+import org.junit.Test;
 
 public class TileTest {
 

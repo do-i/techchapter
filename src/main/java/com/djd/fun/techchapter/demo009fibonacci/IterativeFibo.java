@@ -10,8 +10,8 @@ public class IterativeFibo implements Fibonacci {
 
   /**
    * static method to find out N-th fibonacci number.
-   * <p>
-   * Note: Time complexity of iterative implementation is O(N).
+   *
+   * <p>Note: Time complexity of iterative implementation is O(N).
    *
    * @param n valid range 0 and 16
    * @return Nth fibonacci number
@@ -38,7 +38,8 @@ public class IterativeFibo implements Fibonacci {
     return previous + previousPrevious;
   }
 
-  @Override public BigInteger findBigAt(BigInteger n) {
+  @Override
+  public BigInteger findBigAt(BigInteger n) {
     if (n.compareTo(BigInteger.ZERO) < 0 || BigInteger.valueOf(1000).compareTo(n) < 0) {
       throw new IllegalArgumentException("Acceptable range: 0 <= N <= 1000");
     }

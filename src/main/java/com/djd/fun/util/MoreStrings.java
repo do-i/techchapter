@@ -1,9 +1,8 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.util;
 
-import javax.annotation.Nullable;
-
 import com.google.common.base.Strings;
+import javax.annotation.Nullable;
 
 /**
  * Collection of static methods for string manipulations
@@ -14,8 +13,8 @@ import com.google.common.base.Strings;
 public class MoreStrings {
 
   /**
-   * returns firstLetter character of the given string.
-   * e.g.,
+   * returns firstLetter character of the given string. e.g.,
+   *
    * <pre><code>
    * input="abcd"; output="a";
    * input="a"; output="a";
@@ -24,15 +23,16 @@ public class MoreStrings {
    * </code></pre>
    *
    * @param input string value
-   * @return firstLetter character of the given string. {@code null} if input is either null or empty
+   * @return firstLetter character of the given string. {@code null} if input is either null or
+   *     empty
    */
   public static String firstLetter(@Nullable String input) {
     return (Strings.isNullOrEmpty(input)) ? null : input.substring(0, 1);
   }
 
   /**
-   * returns n-1 length string
-   * e.g.,
+   * returns n-1 length string e.g.,
+   *
    * <pre><code>
    * input="abcd"; output="bcd";
    * input=null; output=null;

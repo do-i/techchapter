@@ -1,10 +1,8 @@
 package com.djd.fun.poc.geo.datatype;
 
-import com.djd.fun.poc.geo.datatype.Location;
+import static com.google.common.truth.Truth.assertThat;
 
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 /**
  * @author JGD
@@ -67,5 +65,4 @@ public class LocationTest {
     assertThat(location.getLatitudeInRadians()).isWithin(0).of(Math.toRadians(30));
     assertThat(location.getLongitudeInRadians()).isWithin(0).of(Math.toRadians(40));
   }
-
 }

@@ -1,9 +1,7 @@
 package com.djd.fun.techchapter.demo011reverse;
 
 import java.util.Objects;
-
 import javax.annotation.Nullable;
-
 
 /**
  * @author JGD
@@ -41,9 +39,8 @@ public class ReverseSinglyLinkedList {
     public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
-      Node node = (Node)o;
-      return value == node.value &&
-          Objects.equals(next, node.next);
+      Node node = (Node) o;
+      return value == node.value && Objects.equals(next, node.next);
     }
 
     @Override

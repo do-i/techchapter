@@ -1,11 +1,9 @@
 package com.djd.fun.techchapter.demo014swing.maze.states;
 
-import java.util.Collection;
-
 import com.djd.fun.techchapter.demo014swing.maze.models.FloorFactory;
 import com.djd.fun.techchapter.demo014swing.maze.models.Location;
 import com.djd.fun.techchapter.demo014swing.maze.models.Tile;
-
+import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,10 +16,11 @@ public class FloorStates {
   public FloorStates() {
     this.currentFloorIndex = 0;
     FloorFactory floorFactory = new FloorFactory();
-    this.floorStates = new FloorState[]{
-        new FloorState(floorFactory.loadFloor("001")),
-        new FloorState(floorFactory.loadFloor("002"))
-    };
+    this.floorStates =
+        new FloorState[] {
+          new FloorState(floorFactory.loadFloor("001")),
+          new FloorState(floorFactory.loadFloor("002"))
+        };
   }
 
   public Location getOriginalPlayerLocation() {

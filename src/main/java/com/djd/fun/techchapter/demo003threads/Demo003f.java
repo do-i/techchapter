@@ -1,23 +1,21 @@
 package com.djd.fun.techchapter.demo003threads;
 
+import com.google.common.base.Throwables;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-
-import com.google.common.base.Throwables;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This class is to demo how to use jdk8 concurrency API
- * <p>
- * Part 6) scheduled thread pool executor with {@link Callable} task.
- * <p>
- * Task will be executed only once after specified delay.
+ *
+ * <p>Part 6) scheduled thread pool executor with {@link Callable} task.
+ *
+ * <p>Task will be executed only once after specified delay.
  *
  * @author JGD
  * @since 8/28/16
@@ -29,7 +27,8 @@ public class Demo003f {
     log.info("TOP");
     ScheduledExecutorService service = null;
     try {
-      // creates ScheduledExecutorService to run task periodically or delay starting execution of tasks
+      // creates ScheduledExecutorService to run task periodically or delay starting execution of
+      // tasks
       service = Executors.newScheduledThreadPool(1);
 
       // schedule() does not block main thread, delay 5 seconds to start executing task A.

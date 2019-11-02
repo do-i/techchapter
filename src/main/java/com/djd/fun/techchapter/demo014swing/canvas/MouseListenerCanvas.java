@@ -8,17 +8,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
-
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * This class demonstrates use of MouseListener.
- */
+/** This class demonstrates use of MouseListener. */
 public class MouseListenerCanvas extends Canvas implements CommandResponder {
   private static final Logger log = LoggerFactory.getLogger(MouseListenerCanvas.class);
   private static final Color[] COLORS = {Color.RED, Color.GREEN, Color.BLUE};
@@ -33,12 +29,13 @@ public class MouseListenerCanvas extends Canvas implements CommandResponder {
   public void paint(Graphics g) {
     log.info("paint called.");
     super.paint(g);
-    Graphics2D g2 = (Graphics2D)g;
+    Graphics2D g2 = (Graphics2D) g;
     Point topLeft = new Point(100, 100);
     Point bottomRight = new Point(300, 300);
-    GradientPaint paint = new GradientPaint(
-        topLeft, COLORS[firstColorIndex],
-        bottomRight, COLORS[secondColorIndex]);
+    GradientPaint paint =
+        new GradientPaint(
+            topLeft, COLORS[firstColorIndex],
+            bottomRight, COLORS[secondColorIndex]);
     g2.setPaint(paint);
     g2.fillRect(100, 100, 200, 200); // (int x, int y, int width, int height)
   }
@@ -65,8 +62,8 @@ public class MouseListenerCanvas extends Canvas implements CommandResponder {
 
   /**
    * callback class for mouse event
-   * <p>
-   * On left-click change first color index. On right-click change second color index.
+   *
+   * <p>On left-click change first color index. On right-click change second color index.
    */
   private class MouseInputCallback extends MouseInputAdapter {
 

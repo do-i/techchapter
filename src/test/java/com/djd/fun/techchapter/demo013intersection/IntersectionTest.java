@@ -1,12 +1,10 @@
 package com.djd.fun.techchapter.demo013intersection;
 
-import java.util.List;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.collect.ImmutableList;
-
+import java.util.List;
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 /**
  * @author JGD
@@ -61,5 +59,4 @@ public class IntersectionTest {
     List<String> list2 = ImmutableList.of("xyz", "abc", "abc");
     assertThat(Intersection.findIntersection(list1, list2)).containsExactly("abc", "xyz");
   }
-
 }

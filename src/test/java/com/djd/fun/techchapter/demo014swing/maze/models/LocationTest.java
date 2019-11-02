@@ -1,10 +1,10 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.techchapter.demo014swing.maze.models;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -29,5 +29,4 @@ public class LocationTest {
   public void invalidCol() {
     Location.of(0, -1);
   }
-
 }

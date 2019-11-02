@@ -1,12 +1,7 @@
 package com.djd.fun.techchapter.demo014swing;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Collection;
-
-import javax.swing.JPanel;
+import static java.awt.BorderLayout.CENTER;
+import static java.awt.BorderLayout.NORTH;
 
 import com.djd.fun.techchapter.demo014swing.canvas.Animation;
 import com.djd.fun.techchapter.demo014swing.canvas.BullseyeCanvas;
@@ -22,12 +17,14 @@ import com.djd.fun.techchapter.demo014swing.maze.SmallGame;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
-
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Collection;
+import javax.swing.JPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static java.awt.BorderLayout.CENTER;
-import static java.awt.BorderLayout.NORTH;
 
 public class MyPanel extends JPanel implements ActionListener {
 
@@ -37,20 +34,20 @@ public class MyPanel extends JPanel implements ActionListener {
 
   public MyPanel() {
     super(new BorderLayout());
-    this.components = ImmutableMap.<String, CommandResponder>builder()
-        .put(SmallGame.class.getSimpleName(), new SmallGame())
-        .put(IconPanel.class.getSimpleName(), new IconPanel())
-        .put(Animation.class.getSimpleName(), new Animation())
-        .put(CirculatorPanel.class.getSimpleName(), new CirculatorPanel())
-        .put(MouseListenerCanvas.class.getSimpleName(), new MouseListenerCanvas())
-        .put(GradientCanvas.class.getSimpleName(), new GradientCanvas())
-        .put(Gradient2JPanel.class.getSimpleName(), new Gradient2JPanel())
-        .put(BullseyeCanvas.class.getSimpleName(), new BullseyeCanvas())
-        .put(MatchOnCanvas.class.getSimpleName(), new MatchOnCanvas())
-        .put(SmileCanvas.class.getSimpleName(), new SmileCanvas())
-        .build();
+    this.components =
+        ImmutableMap.<String, CommandResponder>builder()
+            .put(SmallGame.class.getSimpleName(), new SmallGame())
+            .put(IconPanel.class.getSimpleName(), new IconPanel())
+            .put(Animation.class.getSimpleName(), new Animation())
+            .put(CirculatorPanel.class.getSimpleName(), new CirculatorPanel())
+            .put(MouseListenerCanvas.class.getSimpleName(), new MouseListenerCanvas())
+            .put(GradientCanvas.class.getSimpleName(), new GradientCanvas())
+            .put(Gradient2JPanel.class.getSimpleName(), new Gradient2JPanel())
+            .put(BullseyeCanvas.class.getSimpleName(), new BullseyeCanvas())
+            .put(MatchOnCanvas.class.getSimpleName(), new MatchOnCanvas())
+            .put(SmileCanvas.class.getSimpleName(), new SmileCanvas())
+            .build();
     this.componentNames = ImmutableSortedSet.copyOf(components.keySet());
-
   }
 
   @Override
@@ -74,9 +71,7 @@ public class MyPanel extends JPanel implements ActionListener {
     revalidate(); // refresh the view
   }
 
-  /**
-   * @return all available component names
-   */
+  /** @return all available component names */
   public Collection<String> getComponentNames() {
     return componentNames;
   }

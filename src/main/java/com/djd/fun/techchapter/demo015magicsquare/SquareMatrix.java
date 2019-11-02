@@ -1,12 +1,9 @@
 package com.djd.fun.techchapter.demo015magicsquare;
 
+import com.google.common.annotations.VisibleForTesting;
 import java.util.Arrays;
 
-import com.google.common.annotations.VisibleForTesting;
-
-/**
- * Immutable class that represents a square matrix of integers.
- */
+/** Immutable class that represents a square matrix of integers. */
 public class SquareMatrix {
   private final int[][] matrix;
   private final int size;
@@ -25,28 +22,32 @@ public class SquareMatrix {
     return matrix[row][col];
   }
 
-  @Override public boolean equals(Object obj) {
+  @Override
+  public boolean equals(Object obj) {
     if (this == obj) {
       return true;
     }
     if (!(obj instanceof SquareMatrix)) {
       return false;
     }
-    SquareMatrix that = (SquareMatrix)obj;
+    SquareMatrix that = (SquareMatrix) obj;
     return Arrays.deepEquals(matrix, that.matrix);
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return Arrays.deepHashCode(matrix);
   }
 
-  @Override public String toString() {
+  @Override
+  public String toString() {
     return matrixToString();
   }
 
-  @VisibleForTesting String matrixToString() {
+  @VisibleForTesting
+  String matrixToString() {
     int maxValue = matrix.length * matrix.length;
-    int digits = 1 + (int)Math.log10(maxValue);
+    int digits = 1 + (int) Math.log10(maxValue);
     String format = "%" + digits + "d";
     StringBuilder sb = new StringBuilder();
     for (int[] row : matrix) {
@@ -62,10 +63,11 @@ public class SquareMatrix {
   public static Builder builder(int[][] matrix) {
     final int size = matrix.length;
     Builder builder = new Builder(size);
-    for(int rowIndex = 0; rowIndex < size; rowIndex++) {
+    for (int rowIndex = 0; rowIndex < size; rowIndex++) {
       int[] col = matrix[rowIndex];
       if (col == null || col.length != size) {
-        throw new IllegalArgumentException(String.format("%dx%d Square matrix required.", size, size));
+        throw new IllegalArgumentException(
+            String.format("%dx%d Square matrix required.", size, size));
       }
       for (int colIndex = 0; colIndex < size; colIndex++) {
         builder.setValueAt(matrix[rowIndex][colIndex], rowIndex, colIndex);

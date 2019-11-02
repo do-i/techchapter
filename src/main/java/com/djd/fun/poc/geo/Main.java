@@ -1,27 +1,25 @@
 package com.djd.fun.poc.geo;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 import com.djd.fun.poc.geo.datatype.Location;
 import com.djd.fun.poc.geo.datatype.Trip;
 import com.djd.fun.poc.geo.util.LocationPrinter;
 import com.google.common.eventbus.EventBus;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * GyPSy: GPS simulator runs on a background thread every scheduled time interval GyPSy publish the
  * simulated {@link Location} to {@link EventBus}
- * <p>
- * LeAtitude: one of {@link EventBus} subscribers reacts to the published GPS location and take
+ *
+ * <p>LeAtitude: one of {@link EventBus} subscribers reacts to the published GPS location and take
  * an action accordingly.
- * <p>
- * <a href="http://www.darrinward.com/lat-long">map view</a>
+ *
+ * <p><a href="http://www.darrinward.com/lat-long">map view</a>
  *
  * @author JGD
  * @since 9/25/16
  */
-
 public class Main {
   private static final Location ORD = Location.with(41.9794073, -87.9081644);
   private static final Location LAX = Location.with(33.94, -118.40);

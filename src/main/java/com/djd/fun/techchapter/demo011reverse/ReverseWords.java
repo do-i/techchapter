@@ -1,13 +1,12 @@
 package com.djd.fun.techchapter.demo011reverse;
 
 import javax.annotation.Nullable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Create a function which taks an array of chars which contains multiple words.
- * Reverse words in place.
+ * Create a function which taks an array of chars which contains multiple words. Reverse words in
+ * place.
  *
  * @author jr.ninja
  * @since 08/11/2017
@@ -48,7 +47,11 @@ public class ReverseWords {
    * @param index2
    */
   private static void swapChatAt(char[] data, int index1, int index2) {
-    if (index1 < 0 || index2 < 0 || index1 == index2 || index1 >= data.length || index2 >= data.length) {
+    if (index1 < 0
+        || index2 < 0
+        || index1 == index2
+        || index1 >= data.length
+        || index2 >= data.length) {
       throw new IllegalArgumentException("index should be in a correct range");
     }
     // swap with XOR requires no additinal space
@@ -59,6 +62,7 @@ public class ReverseWords {
 
   /**
    * Count number of words
+   *
    * @param words
    * @return word count
    */

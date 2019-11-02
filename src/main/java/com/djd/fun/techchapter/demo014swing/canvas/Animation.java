@@ -1,5 +1,7 @@
 package com.djd.fun.techchapter.demo014swing.canvas;
 
+import static java.awt.Font.PLAIN;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -8,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.Random;
-
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.event.AncestorEvent;
@@ -16,24 +17,25 @@ import javax.swing.event.AncestorListener;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static java.awt.Font.PLAIN;
-
 /**
- * Demo of Timer based {@link ActionListener} and {@link MouseInputAdapter}
- * One of three shapes appears every 500 milliseconds. Stop the loop by clicking on the green circle.
+ * Demo of Timer based {@link ActionListener} and {@link MouseInputAdapter} One of three shapes
+ * appears every 500 milliseconds. Stop the loop by clicking on the green circle.
  */
 public class Animation extends JPanel implements CommandResponder {
   enum ShapeType {
-    CIRCLE, SQUARE, TRIANGLE
+    CIRCLE,
+    SQUARE,
+    TRIANGLE
   }
 
   private static final Logger log = LoggerFactory.getLogger(Animation.class);
   private static final int SIZE = 80;
-  private static final ShapeType[] SHAPE_TYPES = {ShapeType.CIRCLE, ShapeType.SQUARE, ShapeType.TRIANGLE};
+  private static final ShapeType[] SHAPE_TYPES = {
+    ShapeType.CIRCLE, ShapeType.SQUARE, ShapeType.TRIANGLE
+  };
   private static final int DELAY_MILLISECONDS = 500;
   private final Random random;
   private final Timer timer;
@@ -65,9 +67,7 @@ public class Animation extends JPanel implements CommandResponder {
       case TRIANGLE:
         g.setColor(Color.PINK);
         g.fillPolygon(
-            new int[]{10, 10 + SIZE, (10 + SIZE) / 2},
-            new int[]{10 + SIZE, 10 + SIZE, 10},
-            3);
+            new int[] {10, 10 + SIZE, (10 + SIZE) / 2}, new int[] {10 + SIZE, 10 + SIZE, 10}, 3);
         break;
       case SQUARE:
         g.setColor(Color.YELLOW);
@@ -96,24 +96,27 @@ public class Animation extends JPanel implements CommandResponder {
 
   private class MyAncestorListener implements AncestorListener {
 
-    @Override public void ancestorAdded(AncestorEvent event) {
+    @Override
+    public void ancestorAdded(AncestorEvent event) {
       timer.restart();
       log.info("added");
     }
 
-    @Override public void ancestorRemoved(AncestorEvent event) {
+    @Override
+    public void ancestorRemoved(AncestorEvent event) {
       timer.stop();
       log.info("removed");
     }
 
-    @Override public void ancestorMoved(AncestorEvent event) {
+    @Override
+    public void ancestorMoved(AncestorEvent event) {
       log.info("moved");
     }
   }
 
   /**
-   * Defines callback method which gets called by the timer every DELAY_MILLISECONDS
-   * Randomly pick one of the predefined shape and repaint the panel
+   * Defines callback method which gets called by the timer every DELAY_MILLISECONDS Randomly pick
+   * one of the predefined shape and repaint the panel
    */
   private class MyActionListener implements ActionListener {
 
@@ -141,8 +144,10 @@ public class Animation extends JPanel implements CommandResponder {
       }
       int x = event.getX();
       int y = event.getY();
-      if (x < CENTER_X - RADIUS || x > CENTER_X + RADIUS ||
-          y < CENTER_Y - RADIUS || y > CENTER_Y + RADIUS) {
+      if (x < CENTER_X - RADIUS
+          || x > CENTER_X + RADIUS
+          || y < CENTER_Y - RADIUS
+          || y > CENTER_Y + RADIUS) {
         log.info("outside of circle");
         return;
       }

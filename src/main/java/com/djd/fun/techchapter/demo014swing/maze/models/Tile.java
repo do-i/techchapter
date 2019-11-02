@@ -23,6 +23,7 @@ public class Tile {
     private final char printableLetter;
     private final String name;
     private final boolean steppable;
+
     TileType(char printableLetter, String name, boolean steppable) {
       this.printableLetter = printableLetter;
       this.name = name;

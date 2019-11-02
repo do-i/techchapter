@@ -1,11 +1,9 @@
 package com.djd.fun.techchapter.hanoi;
 
-import com.google.common.truth.Truth;
+import static com.google.common.truth.Truth.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 public class DiskTest {
 
@@ -65,5 +63,4 @@ public class DiskTest {
   public void isNotSmallerThan_2isNotSmallerThan2() {
     assertThat(new Disk(2).isNotSmallerThan(new Disk(2))).isTrue();
   }
-
 }

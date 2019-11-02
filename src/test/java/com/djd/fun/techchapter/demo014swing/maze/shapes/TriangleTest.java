@@ -1,10 +1,9 @@
 package com.djd.fun.techchapter.demo014swing.maze.shapes;
 
-import com.google.common.testing.EqualsTester;
-
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
+
+import com.google.common.testing.EqualsTester;
+import org.junit.Test;
 
 public class TriangleTest {
 

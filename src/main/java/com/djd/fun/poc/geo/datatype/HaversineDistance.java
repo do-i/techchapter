@@ -4,9 +4,9 @@ import java.util.Objects;
 
 /**
  * Immutable distance data type for given two {@link Location}s
- * <p>
- * <a href="https://en.wikipedia.org/wiki/Haversine_formula">HaversineDistance Formula</a>
- * <a href="https://rosettacode.org/wiki/Haversine_formula#Java">Sample</a>
+ *
+ * <p><a href="https://en.wikipedia.org/wiki/Haversine_formula">HaversineDistance Formula</a> <a
+ * href="https://rosettacode.org/wiki/Haversine_formula#Java">Sample</a>
  *
  * @author JGD
  * @since 9/25/16
@@ -15,7 +15,9 @@ public class HaversineDistance {
   public static final double EARTH_RADIUS = 6372.8; // Earth radius in kilometers
 
   public enum Unit {
-    KILOMETERS(1), MILES(0.621371), METERS(1000);
+    KILOMETERS(1),
+    MILES(0.621371),
+    METERS(1000);
 
     private final double value;
 
@@ -59,8 +61,8 @@ public class HaversineDistance {
     final double deltaLat = toLat - fromLat;
     final double deltaLon = to.getLongitudeInRadians() - from.getLongitudeInRadians();
 
-    final double value = sineSquared(deltaLat / 2) +
-        Math.cos(fromLat) * Math.cos(toLat) * sineSquared(deltaLon / 2);
+    final double value =
+        sineSquared(deltaLat / 2) + Math.cos(fromLat) * Math.cos(toLat) * sineSquared(deltaLon / 2);
     return 2 * EARTH_RADIUS * Math.asin(Math.sqrt(value));
   }
 
@@ -74,14 +76,16 @@ public class HaversineDistance {
     return Math.pow(Math.sin(value), 2);
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    HaversineDistance that = (HaversineDistance)o;
+    HaversineDistance that = (HaversineDistance) o;
     return Double.compare(that.distanceInKilometers, distanceInKilometers) == 0;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return Objects.hash(distanceInKilometers);
   }
 }

@@ -1,7 +1,6 @@
 package com.djd.fun.techchapter.demo022Bisection;
 
 import java.util.function.Function;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,12 +10,13 @@ public class Bisection {
   private static final float EPSILON = 0.0001f;
 
   public static void main(String[] args) {
-    log.info("The value of root is : {}",
-        bisection(x -> -(((x * x) - 1) * ((x * x) - 4)) - (-4.01),
-            -2, 10));
+    log.info(
+        "The value of root is : {}",
+        bisection(x -> -(((x * x) - 1) * ((x * x) - 4)) - (-4.01), -2, 10));
   }
 
-  public static double bisection(Function<Double, Double> goofyFunction, double lowerBound, double upperBound) {
+  public static double bisection(
+      Function<Double, Double> goofyFunction, double lowerBound, double upperBound) {
     double midPoint = lowerBound;
     while ((upperBound - lowerBound) >= EPSILON) {
       midPoint = (lowerBound + upperBound) / 2;

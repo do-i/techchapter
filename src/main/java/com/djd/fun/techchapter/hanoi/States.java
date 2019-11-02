@@ -1,13 +1,9 @@
 package com.djd.fun.techchapter.hanoi;
 
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.Set;
-
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-
+import java.util.LinkedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -119,7 +115,8 @@ public class States {
     }
   }
 
-  @VisibleForTesting static boolean isValidMove(ImmutableList<Disk> from, ImmutableList<Disk> to) {
+  @VisibleForTesting
+  static boolean isValidMove(ImmutableList<Disk> from, ImmutableList<Disk> to) {
     if (from.isEmpty()) {
       return false;
     }

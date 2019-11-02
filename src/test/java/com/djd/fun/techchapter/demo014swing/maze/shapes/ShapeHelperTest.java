@@ -2,7 +2,6 @@ package com.djd.fun.techchapter.demo014swing.maze.shapes;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -65,7 +64,7 @@ public class ShapeHelperTest extends Mockito {
     verify(g).fill(Triangle.down(2, 3, 20));
   }
 
-//  @Test(expected = IllegalArgumentException.class)
+  //  @Test(expected = IllegalArgumentException.class)
   @Test
   public void paintEnemy_sizeTooSmall() {
     ShapeHelper.paintEnemy(g, 2, 3, Color.PINK, 1);

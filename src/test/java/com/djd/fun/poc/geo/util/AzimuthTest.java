@@ -1,11 +1,9 @@
 package com.djd.fun.poc.geo.util;
 
-import com.djd.fun.poc.geo.datatype.Location;
-
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import com.djd.fun.poc.geo.datatype.Location;
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -19,5 +17,4 @@ public class AzimuthTest {
     Location la = Location.with(33.94, -118.40);
     assertThat(Azimuth.of(chi, la)).isWithin(0.001).of(261.96);
   }
-
 }

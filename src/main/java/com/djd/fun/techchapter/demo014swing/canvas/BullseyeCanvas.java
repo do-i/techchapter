@@ -5,20 +5,16 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.util.regex.Pattern;
-
 import javax.annotation.RegEx;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by acorn on 8/2/17.
- */
+/** Created by acorn on 8/2/17. */
 public class BullseyeCanvas extends Canvas implements CommandResponder {
 
   private static final Logger log = LoggerFactory.getLogger(BullseyeCanvas.class);

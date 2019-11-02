@@ -1,25 +1,22 @@
 package com.djd.fun.techchapter.demo003threads;
 
+import static com.djd.fun.techchapter.demo003threads.Threads.findCurrentThreadName;
 
+import com.google.common.base.Throwables;
+import com.google.common.collect.ImmutableList;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import com.google.common.base.Throwables;
-import com.google.common.collect.ImmutableList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.djd.fun.techchapter.demo003threads.Threads.findCurrentThreadName;
-
 /**
  * This class is to demo how to use jdk8 concurrency API
- * <p>
- * Part 3) single thread executor with {@link java.util.concurrent.Callable} tasks
- * using {@link ExecutorService#invokeAll(Collection)}.
+ *
+ * <p>Part 3) single thread executor with {@link java.util.concurrent.Callable} tasks using {@link
+ * ExecutorService#invokeAll(Collection)}.
  *
  * @author JGD
  * @since 8/27/16
@@ -33,17 +30,17 @@ public class Demo003c {
     try {
       // same as Executors.newSingleThreadExecutor();
       service = Executors.newFixedThreadPool(1);
-      service
-          .invokeAll(ImmutableList.of(createTask("001"), createTask("002"), createTask("003")))
+      service.invokeAll(ImmutableList.of(createTask("001"), createTask("002"), createTask("003")))
           .stream()
-          .map(future -> {
-            try {
-              // This call blocks main thread.
-              return future.get();
-            } catch (InterruptedException | ExecutionException e) {
-              throw Throwables.propagate(e);
-            }
-          })
+          .map(
+              future -> {
+                try {
+                  // This call blocks main thread.
+                  return future.get();
+                } catch (InterruptedException | ExecutionException e) {
+                  throw Throwables.propagate(e);
+                }
+              })
           .forEach(result -> log.info("result: {}", result));
       log.info("MID Demo003c {}", findCurrentThreadName());
     } catch (InterruptedException e) {
@@ -69,9 +66,12 @@ public class Demo003c {
       this.name = name;
     }
 
-    @Override public String call() throws Exception {
-      log.info("Non-deterministic log. [Task {}] This is executed on a worker thread {}.",
-          name, findCurrentThreadName());
+    @Override
+    public String call() throws Exception {
+      log.info(
+          "Non-deterministic log. [Task {}] This is executed on a worker thread {}.",
+          name,
+          findCurrentThreadName());
       return name;
     }
   }

@@ -11,7 +11,7 @@ public class Consumer implements Runnable {
   }
 
   @Override
-  public void run(){
+  public void run() {
     boolean exit = false;
     while (!exit) {
       while (!queue.isEmpty()) {

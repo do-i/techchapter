@@ -1,10 +1,9 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.techchapter.demo014swing.maze.models;
 
-import java.util.Objects;
-
 import com.djd.fun.util.MorePreconditions;
 import com.google.common.base.MoreObjects;
+import java.util.Objects;
 
 /**
  * Represents a location on Floor grid (2D array)
@@ -34,21 +33,21 @@ public class Location {
     return new Location(row, col);
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Location location = (Location)o;
+    Location location = (Location) o;
     return row == location.row && col == location.col;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return Objects.hash(row, col);
   }
 
-  @Override public String toString() {
-    return MoreObjects.toStringHelper(this)
-        .add("row", row)
-        .add("col", col)
-        .toString();
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(this).add("row", row).add("col", col).toString();
   }
 }

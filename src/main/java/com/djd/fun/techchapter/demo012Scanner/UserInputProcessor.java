@@ -1,8 +1,7 @@
 package com.djd.fun.techchapter.demo012Scanner;
 
-import java.util.Scanner;
-
 import com.google.common.annotations.VisibleForTesting;
+import java.util.Scanner;
 
 /**
  * @author JGD
@@ -16,7 +15,8 @@ public class UserInputProcessor {
     scanner = new Scanner(System.in);
   }
 
-  @VisibleForTesting UserInputProcessor(String input) {
+  @VisibleForTesting
+  UserInputProcessor(String input) {
     scanner = new Scanner(input);
   }
 

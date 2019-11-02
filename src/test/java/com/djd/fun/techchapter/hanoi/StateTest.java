@@ -1,44 +1,24 @@
 package com.djd.fun.techchapter.hanoi;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.testing.EqualsTester;
-
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 public class StateTest {
   private static final Disk DISK_1 = new Disk(1);
   private static final Disk DISK_2 = new Disk(2);
   private static final Disk DISK_3 = new Disk(3);
-  private static final State STATE_1 = State.builder()
-      .leftPeg(DISK_3)
-      .leftPeg(DISK_2)
-      .leftPeg(DISK_1)
-      .build();
-  private static final State STATE_2 = State.builder()
-      .leftPeg(DISK_3)
-      .leftPeg(DISK_1)
-      .middlePeg(DISK_2)
-      .build();
-  private static final State STATE_3 = State.builder()
-      .rightPeg(DISK_3)
-      .rightPeg(DISK_1)
-      .middlePeg(DISK_2)
-      .build();
-  private static final State STATE_4 = State.builder()
-      .leftPeg(DISK_3)
-      .leftPeg(DISK_2)
-      .build();
-  private static final State STATE_5 = State.builder()
-      .leftPeg(DISK_3)
-      .leftPeg(DISK_1)
-      .build();
-  private static final State STATE_6 = State.builder()
-      .rightPeg(DISK_3)
-      .middlePeg(DISK_2)
-      .build();
-
+  private static final State STATE_1 =
+      State.builder().leftPeg(DISK_3).leftPeg(DISK_2).leftPeg(DISK_1).build();
+  private static final State STATE_2 =
+      State.builder().leftPeg(DISK_3).leftPeg(DISK_1).middlePeg(DISK_2).build();
+  private static final State STATE_3 =
+      State.builder().rightPeg(DISK_3).rightPeg(DISK_1).middlePeg(DISK_2).build();
+  private static final State STATE_4 = State.builder().leftPeg(DISK_3).leftPeg(DISK_2).build();
+  private static final State STATE_5 = State.builder().leftPeg(DISK_3).leftPeg(DISK_1).build();
+  private static final State STATE_6 = State.builder().rightPeg(DISK_3).middlePeg(DISK_2).build();
 
   @Test
   public void equality() {

@@ -2,13 +2,10 @@ package com.djd.fun.techchapter.demo014swing;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by acorn on 8/3/17.
- */
+/** Created by acorn on 8/3/17. */
 public class GuiPreper {
 
   private static final Logger log = LoggerFactory.getLogger(GuiPreper.class);

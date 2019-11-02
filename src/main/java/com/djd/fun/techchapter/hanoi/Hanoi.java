@@ -1,22 +1,17 @@
 package com.djd.fun.techchapter.hanoi;
 
-import java.util.Optional;
-
 import com.djd.fun.util.MorePreconditions;
 import com.google.common.collect.ImmutableList;
+import java.util.Optional;
 
-/**
- * A representation of Tower of Hanoi.
- */
+/** A representation of Tower of Hanoi. */
 public class Hanoi {
 
   private final Peg left;
   private final Peg middle;
   private final Peg right;
 
-  /**
-   * Initializes with 3 disks.
-   */
+  /** Initializes with 3 disks. */
   public Hanoi() {
     this(3);
   }
@@ -47,9 +42,7 @@ public class Hanoi {
     initialize(numOfDisks);
   }
 
-  /**
-   * @return {@code true} if all disks are on right peg
-   */
+  /** @return {@code true} if all disks are on right peg */
   public boolean isDone() {
     return left.isEmpty() && middle.isEmpty();
   }

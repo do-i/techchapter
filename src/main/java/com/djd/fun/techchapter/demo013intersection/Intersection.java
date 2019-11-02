@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-
 /**
  * @author JGD
  * @since 11/28/16
@@ -25,9 +24,6 @@ public class Intersection {
     }
     Set<String> target = new HashSet(list1);
     Predicate<String> predicate = str -> target.contains(str);
-    return list2.stream()
-        .distinct()
-        .filter(predicate)
-        .collect(Collectors.toList());
+    return list2.stream().distinct().filter(predicate).collect(Collectors.toList());
   }
 }

@@ -1,12 +1,10 @@
 package com.djd.fun.techchapter.demo009fibonacci;
 
-import java.math.BigInteger;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import java.math.BigInteger;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -77,7 +75,8 @@ public class IterativeFiboTest {
 
   @Test
   public void findBigAt_46_1836311903() {
-    assertThat(fibonacci.findBigAt(BigInteger.valueOf(46))).isEqualTo(BigInteger.valueOf(1836311903));
+    assertThat(fibonacci.findBigAt(BigInteger.valueOf(46)))
+        .isEqualTo(BigInteger.valueOf(1836311903));
   }
 
   @Test
@@ -89,6 +88,8 @@ public class IterativeFiboTest {
   @Test
   public void findBigAt_1000_veryBigNumber() {
     assertThat(fibonacci.findBigAt(BigInteger.valueOf(1000)))
-        .isEqualTo(new BigInteger("43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875"));
+        .isEqualTo(
+            new BigInteger(
+                "43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875"));
   }
 }

@@ -6,7 +6,9 @@ public class Auditor implements Runnable {
 
   private final Collection<String> target;
 
-  public Auditor(Collection<String> target) {this.target = target;}
+  public Auditor(Collection<String> target) {
+    this.target = target;
+  }
 
   @Override
   public void run() {

@@ -1,8 +1,8 @@
 package com.djd.fun.poc.geo.datatype;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
+
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -17,5 +17,4 @@ public class TripTest {
     assertThat(Trip.between(chi, la)).isEqualTo(Trip.between(chi, la));
     assertThat(Trip.between(chi, la)).isNotEqualTo(Trip.between(la, chi));
   }
-
 }

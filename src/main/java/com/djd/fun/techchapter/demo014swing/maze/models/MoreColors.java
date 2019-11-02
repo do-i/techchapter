@@ -2,9 +2,7 @@ package com.djd.fun.techchapter.demo014swing.maze.models;
 
 import java.awt.Color;
 
-/**
- * Collection of {@link Color} constants
- */
+/** Collection of {@link Color} constants */
 public class MoreColors {
 
   private MoreColors() {
@@ -23,8 +21,6 @@ public class MoreColors {
     public static final Color YELLOW = new Color(0xffff66);
     public static final Color BLUE = new Color(0x84C0E1);
     public static final Color GREEN = new Color(0x66ff99);
-
-
   }
 
   public static class NEON {

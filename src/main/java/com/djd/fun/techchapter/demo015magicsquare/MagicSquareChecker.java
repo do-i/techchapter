@@ -2,9 +2,7 @@ package com.djd.fun.techchapter.demo015magicsquare;
 
 import com.google.common.annotations.VisibleForTesting;
 
-/**
- *
- */
+/** */
 public class MagicSquareChecker {
 
   /**
@@ -29,11 +27,13 @@ public class MagicSquareChecker {
    * @param size
    * @return magic sum
    */
-  @VisibleForTesting static int magicSum(int size) {
+  @VisibleForTesting
+  static int magicSum(int size) {
     return size * ((size * size) + 1) / 2;
   }
 
-  @VisibleForTesting static boolean checkValueRange(SquareMatrix matrix) {
+  @VisibleForTesting
+  static boolean checkValueRange(SquareMatrix matrix) {
     int matrixSize = matrix.size();
     int maxValue = matrixSize * matrixSize;
     for (int rowIndex = 0; rowIndex < matrixSize; rowIndex++) {
@@ -47,7 +47,8 @@ public class MagicSquareChecker {
     return true;
   }
 
-  @VisibleForTesting static boolean checkUniq(SquareMatrix matrix) {
+  @VisibleForTesting
+  static boolean checkUniq(SquareMatrix matrix) {
     if (!checkValueRange(matrix)) {
       return false;
     }
@@ -69,7 +70,8 @@ public class MagicSquareChecker {
     return true;
   }
 
-  @VisibleForTesting static boolean isDiagonalyMagicSum(SquareMatrix matrix) {
+  @VisibleForTesting
+  static boolean isDiagonalyMagicSum(SquareMatrix matrix) {
     final int matrixSize = matrix.size();
     int backslashSum = 0;
     int forwardSlashSum = 0;
@@ -80,7 +82,8 @@ public class MagicSquareChecker {
     return backslashSum == forwardSlashSum && forwardSlashSum == magicSum(matrixSize);
   }
 
-  @VisibleForTesting static boolean isEveryRowMagicSum(SquareMatrix matrix) {
+  @VisibleForTesting
+  static boolean isEveryRowMagicSum(SquareMatrix matrix) {
     final int matrixSize = matrix.size();
     final int magicSum = magicSum(matrixSize);
     for (int rowIndex = 0; rowIndex < matrixSize; rowIndex++) {
@@ -95,7 +98,8 @@ public class MagicSquareChecker {
     return true;
   }
 
-  @VisibleForTesting static boolean isEveryColMagicSum(SquareMatrix matrix) {
+  @VisibleForTesting
+  static boolean isEveryColMagicSum(SquareMatrix matrix) {
     final int matrixSize = matrix.size();
     final int magicSum = magicSum(matrixSize);
     for (int colIndex = 0; colIndex < matrixSize; colIndex++) {

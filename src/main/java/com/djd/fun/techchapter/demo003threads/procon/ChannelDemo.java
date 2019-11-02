@@ -1,15 +1,14 @@
 package com.djd.fun.techchapter.demo003threads.procon;
 
+import static java.lang.Thread.sleep;
+
+import com.google.common.collect.Queues;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import com.google.common.collect.Queues;
-
-import static java.lang.Thread.sleep;
 
 /**
  * @author jdoi
@@ -88,7 +87,8 @@ public class ChannelDemo {
     private final Random random;
     private final int consumerId;
 
-    Consumer(BlockingQueue<Task> queue, CountDownLatch countDownLatch, Random random, int consumerId) {
+    Consumer(
+        BlockingQueue<Task> queue, CountDownLatch countDownLatch, Random random, int consumerId) {
       this.queue = queue;
       this.countDownLatch = countDownLatch;
       this.random = random;

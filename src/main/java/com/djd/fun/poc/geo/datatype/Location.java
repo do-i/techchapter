@@ -1,9 +1,7 @@
 package com.djd.fun.poc.geo.datatype;
 
-import java.util.Objects;
-
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.MoreObjects;
+import java.util.Objects;
 
 /**
  * Immutable data type for a location (latitude, longitude)
@@ -41,15 +39,17 @@ public class Location {
     return new Location(latitude, longitude);
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Location location = (Location)o;
-    return Double.compare(location.latitude, latitude) == 0 &&
-        Double.compare(location.longitude, longitude) == 0;
+    Location location = (Location) o;
+    return Double.compare(location.latitude, latitude) == 0
+        && Double.compare(location.longitude, longitude) == 0;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return Objects.hash(latitude, longitude);
   }
 
@@ -58,18 +58,19 @@ public class Location {
     return latitude + "," + longitude;
   }
 
-  @VisibleForTesting static double checkLatitude(double latitude) {
+  @VisibleForTesting
+  static double checkLatitude(double latitude) {
     if (latitude < -90 || 90 < latitude) {
       throw new IllegalArgumentException("Bad latitude " + latitude);
     }
     return latitude;
   }
 
-  @VisibleForTesting static double checkLongitude(double longitude) {
+  @VisibleForTesting
+  static double checkLongitude(double longitude) {
     if (longitude < -180 || 180 < longitude) {
       throw new IllegalArgumentException("Bad longitude " + longitude);
     }
     return longitude;
   }
-
 }

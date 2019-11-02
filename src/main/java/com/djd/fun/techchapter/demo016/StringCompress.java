@@ -5,8 +5,7 @@ import javax.annotation.Nullable;
 public class StringCompress {
 
   /**
-   * Compress string by counting consecutive char length
-   * "dddooog" -> "d3o3g1"
+   * Compress string by counting consecutive char length "dddooog" -> "d3o3g1"
    *
    * @param input
    * @return compressed string or original if compression rate is bad
@@ -30,8 +29,6 @@ public class StringCompress {
     }
     compressedString.append(prev);
     compressedString.append(count);
-    return compressedString.length() < input.length()
-        ? compressedString.toString()
-        : input;
+    return compressedString.length() < input.length() ? compressedString.toString() : input;
   }
 }

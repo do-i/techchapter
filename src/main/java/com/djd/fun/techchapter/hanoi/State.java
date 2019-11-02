@@ -1,14 +1,13 @@
 package com.djd.fun.techchapter.hanoi;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ImmutableList;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 
 public class State {
 
@@ -30,7 +29,8 @@ public class State {
    *
    * @param disks
    */
-  @VisibleForTesting static void checkOrdering(Collection<? extends Disk> disks) {
+  @VisibleForTesting
+  static void checkOrdering(Collection<? extends Disk> disks) {
     if (!Comparators.isInStrictOrder(disks, Disk::compareTo)) {
       throw new IllegalArgumentException("disks are not in valid order");
     }
@@ -40,10 +40,10 @@ public class State {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof State)) return false;
-    State state = (State)o;
-    return Objects.equals(leftPeg, state.leftPeg) &&
-        Objects.equals(middlePeg, state.middlePeg) &&
-        Objects.equals(rightPeg, state.rightPeg);
+    State state = (State) o;
+    return Objects.equals(leftPeg, state.leftPeg)
+        && Objects.equals(middlePeg, state.middlePeg)
+        && Objects.equals(rightPeg, state.rightPeg);
   }
 
   @Override

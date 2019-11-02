@@ -1,10 +1,9 @@
 package com.djd.fun.techchapter.demo016;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import org.junit.Ignore;
+import org.junit.Test;
 
 public class MaxIntTest {
 

@@ -5,7 +5,10 @@ import com.djd.fun.util.MorePreconditions;
 public class Triangle extends BasePolygon {
 
   enum Direction {
-    UP, DOWN, LEFT, RIGHT
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
   }
 
   private Triangle(Builder builder) {
@@ -57,35 +60,23 @@ public class Triangle extends BasePolygon {
 
     private int[] getXCoordinatesUp() {
       int delta = size / 2;
-      return new int[]{
-          col * size + delta,
-          col * size + smaller,
-          col * size + size - smaller
-      };
+      return new int[] {col * size + delta, col * size + smaller, col * size + size - smaller};
     }
 
     private int[] getYCoordinatesUp() {
       int delta = size / 2;
-      return new int[]{
-          row * size + smaller,
-          row * size + size - smaller,
-          row * size + size - smaller
+      return new int[] {
+        row * size + smaller, row * size + size - smaller, row * size + size - smaller
       };
     }
 
     private int[] getXCoordinatesDown() {
-      return new int[]{
-          col * size + smaller,
-          col * size + size - smaller,
-          col * size + (size / 2)
-      };
+      return new int[] {col * size + smaller, col * size + size - smaller, col * size + (size / 2)};
     }
 
     private int[] getYCoordinatesDown() {
-      return new int[]{
-          row * size + smaller,
-          row * size + smaller,
-          row * size + size - smaller,
+      return new int[] {
+        row * size + smaller, row * size + smaller, row * size + size - smaller,
       };
     }
 

@@ -1,21 +1,18 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.techchapter.demo014swing.maze.models;
 
-import java.io.PrintStream;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.djd.fun.util.MorePreconditions;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSet;
-
+import java.io.PrintStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 /**
- * This class represents a dungeon floor at specified dimension.
- * dimension must be at least 1x1
+ * This class represents a dungeon floor at specified dimension. dimension must be at least 1x1
  *
  * @author JGD
  * @since 8/15/16
@@ -26,15 +23,12 @@ public class Floor {
   private final int numOfRows;
   private final int numOfCols;
 
-  /**
-   * Note: Do create public accessor to this reference. Keep it immutable.
-   */
+  /** Note: Do create public accessor to this reference. Keep it immutable. */
   private final Tile[][] tiles;
 
-  /**
-   * This is player's original location. Floor does NOT keep current player location.
-   */
+  /** This is player's original location. Floor does NOT keep current player location. */
   private final Location playerOriginalLocation;
+
   private final ImmutableSet<Location> enemyLocations;
   private final ImmutableSet<Location> tokenLocations;
   private final ImmutableSet<Location> gemLocations;
@@ -129,7 +123,7 @@ public class Floor {
    *
    * @param location current player location
    * @return north {@link Location} if the player character is allowed to enter the target location.
-   * current location otherwise.
+   *     current location otherwise.
    */
   public Location getNorthLocation(Location location) {
     log.info("location {}", location);
@@ -147,7 +141,7 @@ public class Floor {
    *
    * @param location current player location
    * @return east {@link Location} if the player character is allowed to enter the target location.
-   * current location otherwise.
+   *     current location otherwise.
    */
   public Location getEastLocation(Location location) {
     if (location.col < numOfCols - 1) {
@@ -164,7 +158,7 @@ public class Floor {
    *
    * @param location current player location
    * @return south {@link Location} if the player character is allowed to enter the target location.
-   * current location otherwise.
+   *     current location otherwise.
    */
   public Location getSouthLocation(Location location) {
     if (location.row < numOfRows - 1) {
@@ -181,7 +175,7 @@ public class Floor {
    *
    * @param location current player location
    * @return west {@link Location} if the player character is allowed to enter the target location.
-   * current location otherwise.
+   *     current location otherwise.
    */
   public Location getWestLocation(Location location) {
     if (location.col > 0 && location.col < numOfCols) {
@@ -225,8 +219,11 @@ public class Floor {
     return playerOriginalLocation;
   }
 
-  @VisibleForTesting boolean isValidLocation(Location location) {
-    return location.row >= 0 && location.row < numOfRows &&
-        location.col >= 0 && location.col < numOfCols;
+  @VisibleForTesting
+  boolean isValidLocation(Location location) {
+    return location.row >= 0
+        && location.row < numOfRows
+        && location.col >= 0
+        && location.col < numOfCols;
   }
 }

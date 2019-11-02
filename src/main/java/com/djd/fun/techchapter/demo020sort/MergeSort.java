@@ -2,11 +2,10 @@ package com.djd.fun.techchapter.demo020sort;
 
 /**
  * O(N * Log(N))
- * <p>
- * Depth is Log(N) each deapth iterate N for merge.
- * example: length 8 array, 1st depth is 4 each, 2nd is 2 each, 3rd is 1 each. Depth=3 = log(8) or
- * 2^3 = 8 or 2^Depth = N
- * Space: O(3N) => O(N) once reaches leaf node it deallocate sub array and move on to next merge.
+ *
+ * <p>Depth is Log(N) each deapth iterate N for merge. example: length 8 array, 1st depth is 4 each,
+ * 2nd is 2 each, 3rd is 1 each. Depth=3 = log(8) or 2^3 = 8 or 2^Depth = N Space: O(3N) => O(N)
+ * once reaches leaf node it deallocate sub array and move on to next merge.
  */
 public class MergeSort {
   public static void mergeSort(int[] input) {

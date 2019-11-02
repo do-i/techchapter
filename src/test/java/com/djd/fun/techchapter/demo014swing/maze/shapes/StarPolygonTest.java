@@ -1,7 +1,6 @@
 package com.djd.fun.techchapter.demo014swing.maze.shapes;
 
 import com.google.common.testing.EqualsTester;
-
 import org.junit.Test;
 
 public class StarPolygonTest {
@@ -15,5 +14,4 @@ public class StarPolygonTest {
         .addEqualityGroup(Diamond.with(0, 0, 80))
         .testEquals();
   }
-
 }

@@ -6,11 +6,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-
 import javax.swing.JPanel;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +39,7 @@ public class Gradient2JPanel extends JPanel implements CommandResponder {
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-    Graphics2D g2 = (Graphics2D)g;
+    Graphics2D g2 = (Graphics2D) g;
     g2.drawImage(bufferedImage, null, null);
   }
 

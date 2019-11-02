@@ -1,11 +1,10 @@
 package com.djd.fun.techchapter.demo011reverse;
 
-import com.djd.fun.techchapter.demo011reverse.ReverseSinglyLinkedList.Node;
+import static com.google.common.truth.Truth.assertThat;
 
+import com.djd.fun.techchapter.demo011reverse.ReverseSinglyLinkedList.Node;
 import org.junit.Before;
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 /**
  * @author JGD
@@ -33,19 +32,20 @@ public class ReverseSinglyLinkedListTest {
 
   @Test
   public void reverse_twoNodes() {
-    Node result = reverseSinglyLinkedList.reverse(createList(new int[]{1, 2}));
-    assertThat(result).isEqualTo(createList(new int[]{2, 1}));
+    Node result = reverseSinglyLinkedList.reverse(createList(new int[] {1, 2}));
+    assertThat(result).isEqualTo(createList(new int[] {2, 1}));
   }
 
   @Test
   public void reverse_sevenNodes() {
-    Node result = reverseSinglyLinkedList.reverse(createList(new int[]{1, 2, 3, 4, 5, 6, 7}));
-    assertThat(result).isEqualTo(createList(new int[]{7, 6, 5, 4, 3, 2, 1}));
+    Node result = reverseSinglyLinkedList.reverse(createList(new int[] {1, 2, 3, 4, 5, 6, 7}));
+    assertThat(result).isEqualTo(createList(new int[] {7, 6, 5, 4, 3, 2, 1}));
     print(result);
   }
 
   /**
    * Helper method to create a linked list from given int array
+   *
    * @param items in int array
    * @return haed {@link Node} of the list
    */
@@ -67,6 +67,7 @@ public class ReverseSinglyLinkedListTest {
 
   /**
    * debug method to print linked list values.
+   *
    * @param head
    */
   private static void print(Node head) {

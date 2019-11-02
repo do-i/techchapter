@@ -1,10 +1,10 @@
 //  Copyright (c) 2016 JGD Licensed under the MIT license
 package com.djd.fun.util;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+
+import org.junit.Test;
 
 /**
  * @author JGD

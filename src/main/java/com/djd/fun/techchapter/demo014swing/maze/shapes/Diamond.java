@@ -36,22 +36,12 @@ public class Diamond extends BasePolygon {
 
     private int[] getXCoordinates() {
       int delta = size / 2;
-      return new int[]{
-          col * size + delta,
-          col * size + size,
-          col * size + delta,
-          col * size
-      };
+      return new int[] {col * size + delta, col * size + size, col * size + delta, col * size};
     }
 
     private int[] getYCoordinates() {
       int delta = size / 2;
-      return new int[]{
-          row * size,
-          row * size + delta,
-          row * size + size,
-          row * size + delta
-      };
+      return new int[] {row * size, row * size + delta, row * size + size, row * size + delta};
     }
 
     public Diamond build() {

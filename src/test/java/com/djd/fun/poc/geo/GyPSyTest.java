@@ -1,13 +1,10 @@
 package com.djd.fun.poc.geo;
 
-import com.djd.fun.poc.geo.datatype.Location;
-import com.djd.fun.poc.geo.datatype.Trip;
-
-import org.junit.Ignore;
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 
+import com.djd.fun.poc.geo.datatype.Location;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * @author JGD
@@ -32,6 +29,4 @@ public class GyPSyTest {
     assertThat(destination.getLatitude()).isWithin(0.001).of(33.973352);
     assertThat(destination.getLongitude()).isWithin(0.001).of(-118.343783);
   }
-
-
 }

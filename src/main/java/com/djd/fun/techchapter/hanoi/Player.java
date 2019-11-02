@@ -8,14 +8,11 @@ public class Player {
   private static final Logger log = LoggerFactory.getLogger(Player.class);
   private final Movement movement;
 
-
   public Player() {
     this(3);
   }
 
-  /**
-   * @param numOfDisks number between 2 and 12
-   */
+  /** @param numOfDisks number between 2 and 12 */
   public Player(int numOfDisks) {
     if (numOfDisks < 2 || numOfDisks > 12) {
       throw new IllegalArgumentException("valid numOfDisks range: 2..12");

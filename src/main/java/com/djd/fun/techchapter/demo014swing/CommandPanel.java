@@ -1,7 +1,6 @@
 package com.djd.fun.techchapter.demo014swing;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.Document;

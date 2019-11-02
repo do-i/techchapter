@@ -1,9 +1,7 @@
 package com.djd.fun.techchapter.demo006lambda;
 
-import java.util.List;
-
 import com.google.common.collect.Lists;
-
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

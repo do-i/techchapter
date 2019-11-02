@@ -1,16 +1,12 @@
 package com.djd.fun.techchapter.demo017tries;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.Nullable;
 
-/**
- * A representation of a node in a {@link Trie}.
- */
+/** A representation of a node in a {@link Trie}. */
 public class Node {
   private final String value;
   private final int deapth;

@@ -16,10 +16,10 @@ public class BasePolygon extends Polygon {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BasePolygon that = (BasePolygon)o;
-    return npoints == that.npoints &&
-        Arrays.equals(xpoints, that.xpoints) &&
-        Arrays.equals(ypoints, that.ypoints);
+    BasePolygon that = (BasePolygon) o;
+    return npoints == that.npoints
+        && Arrays.equals(xpoints, that.xpoints)
+        && Arrays.equals(ypoints, that.ypoints);
   }
 
   @Override

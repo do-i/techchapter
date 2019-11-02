@@ -8,13 +8,16 @@ public class ImageRotator {
 
   /**
    * Rotate image in 90 degree
+   *
    * <pre>
    * x x x x
    * w w w w
    * y y y y
    * z z z z
    * </pre>
+   *
    * becomes
+   *
    * <pre>
    *   z y w x
    *   z y w x

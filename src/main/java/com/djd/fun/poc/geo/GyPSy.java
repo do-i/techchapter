@@ -1,13 +1,12 @@
 package com.djd.fun.poc.geo;
 
-import com.djd.fun.poc.geo.event.TerminalSignal;
 import com.djd.fun.poc.geo.datatype.HaversineDistance;
 import com.djd.fun.poc.geo.datatype.Location;
 import com.djd.fun.poc.geo.datatype.Trip;
+import com.djd.fun.poc.geo.event.TerminalSignal;
 import com.djd.fun.poc.geo.util.Azimuth;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.eventbus.EventBus;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,8 +46,9 @@ public class GyPSy implements Runnable {
     }
     Location nextDelta;
     if (currentDropPoints < trip.getNumOfDropPoints()) {
-      nextDelta = findDestinationLocation(trip.getFrom(), azimuth,
-          trip.getIntervalMeter() * currentDropPoints++);
+      nextDelta =
+          findDestinationLocation(
+              trip.getFrom(), azimuth, trip.getIntervalMeter() * currentDropPoints++);
     } else {
       nextDelta = trip.getTo();
       arrivedDestination = true;
@@ -64,15 +64,17 @@ public class GyPSy implements Runnable {
    * @param distanceInMeters distance between {@link Location} from and destination {@link Location}
    * @return destination {@link Location}
    */
-  @VisibleForTesting static Location findDestinationLocation(Location from, double azimuth,
-      double distanceInMeters) {
+  @VisibleForTesting
+  static Location findDestinationLocation(Location from, double azimuth, double distanceInMeters) {
     double bearing = Math.toRadians(azimuth);
     double fromLat = from.getLatitudeInRadians();
     double fromLon = from.getLongitudeInRadians();
     double distanceInKilometers = distanceInMeters / 1000 / HaversineDistance.EARTH_RADIUS;
     log.debug("bearing: {}, distanceInKilo: {}", bearing, distanceInKilometers);
-    double toLat = Math.asin(Math.sin(fromLat) * Math.cos(distanceInKilometers) +
-        Math.cos(fromLat) * Math.sin(distanceInKilometers) * Math.cos(bearing));
+    double toLat =
+        Math.asin(
+            Math.sin(fromLat) * Math.cos(distanceInKilometers)
+                + Math.cos(fromLat) * Math.sin(distanceInKilometers) * Math.cos(bearing));
     double y = Math.sin(bearing) * Math.sin(distanceInKilometers) * Math.cos(fromLat);
     double x = Math.cos(distanceInKilometers) - Math.sin(fromLat) * Math.sin(toLat);
     double toLon = fromLon + Math.atan2(y, x);

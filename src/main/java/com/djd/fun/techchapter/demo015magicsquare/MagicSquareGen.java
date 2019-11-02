@@ -15,7 +15,6 @@ public class MagicSquareGen {
         return create3x3MagicSquare();
       default:
         throw new UnsupportedOperationException("Currently not supported for size " + size);
-
     }
   }
 
@@ -24,5 +23,4 @@ public class MagicSquareGen {
     // use 1,2,3,4,5,6,7,8,9
     throw new UnsupportedOperationException("TODO");
   }
-
 }

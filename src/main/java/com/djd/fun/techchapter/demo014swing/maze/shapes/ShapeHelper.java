@@ -2,13 +2,10 @@ package com.djd.fun.techchapter.demo014swing.maze.shapes;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Collection of static helper methods to paint on {@link Graphics2D}
- */
+/** Collection of static helper methods to paint on {@link Graphics2D} */
 public class ShapeHelper {
 
   private static final Logger log = LoggerFactory.getLogger(ShapeHelper.class);

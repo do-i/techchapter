@@ -1,10 +1,9 @@
 package com.djd.fun.techchapter.demo014swing.maze.shapes;
 
-import com.google.common.testing.EqualsTester;
-
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
+
+import com.google.common.testing.EqualsTester;
+import org.junit.Test;
 
 public class DiamondTest {
 
@@ -42,10 +41,10 @@ public class DiamondTest {
   @Test
   public void equality() {
     new EqualsTester()
-        .addEqualityGroup(Diamond.with(0,0,20), Diamond.with(0,0,20))
-        .addEqualityGroup(Diamond.with(1,0,20))
-        .addEqualityGroup(Diamond.with(0,1,20))
-        .addEqualityGroup(Diamond.with(0,0,80))
+        .addEqualityGroup(Diamond.with(0, 0, 20), Diamond.with(0, 0, 20))
+        .addEqualityGroup(Diamond.with(1, 0, 20))
+        .addEqualityGroup(Diamond.with(0, 1, 20))
+        .addEqualityGroup(Diamond.with(0, 0, 80))
         .testEquals();
   }
 }
