@@ -1,38 +1,66 @@
 package com.djd.fun.techchapter.demo23sudoku;
 
+import java.util.Stack;
+
 public class Sudoku {
 
-  public static int checkDigit(int value) {
-    if (value >= 0 && value <= 9) {
-      return value;
+  private final Grid grid;
+  private final Stack<Cell> unsolvedCells = new Stack();
+  private final Stack<Cell> solvedCells = new Stack();
+
+  public Sudoku() {
+    int[][] gridSeed =
+        new int[][] {
+          {5, 3, 0, 0, 7, 0, 0, 0, 0},
+          {6, 0, 0, 1, 9, 5, 0, 0, 0},
+          {0, 9, 8, 0, 0, 0, 0, 6, 0},
+          // ------------------------
+          {8, 0, 0, 0, 6, 0, 0, 0, 3},
+          {4, 0, 0, 8, 0, 3, 0, 0, 1},
+          {7, 0, 0, 0, 2, 0, 0, 0, 6},
+          // ------------------------
+          {0, 6, 0, 0, 0, 0, 2, 8, 0},
+          {0, 0, 0, 4, 1, 9, 0, 0, 5},
+          {0, 0, 0, 0, 8, 0, 0, 7, 9}
+        };
+    this.grid = new Grid(gridSeed);
+    grid.getNonClueCells().forEach(unsolvedCells::push);
+  }
+
+  public void solve() {
+    while (!unsolvedCells.empty()) {
+      Cell cell = unsolvedCells.peek();
+      if (cell.updateDigit()) {
+        solvedCells.push(unsolvedCells.pop());
+        grid.print();
+      } else {
+        backTrack();
+      }
     }
-    throw new IllegalArgumentException(String.format("Value {%d} must be between 0 and 9.", value));
   }
 
-  public static boolean isValueUnique(Cell cell, Grid grid) {
-    throw new UnsupportedOperationException("TODO");
-  }
-
-  private static boolean isDigitInRow(Cell cell, Grid grid) {
-    throw new UnsupportedOperationException("TODO");
-  }
-
-  private static boolean isDigitInCol(Cell cell, Grid grid) {
-    throw new UnsupportedOperationException("TODO");
-  }
-
-  private static boolean isDigitInBox(Cell cell, Grid grid) {
-    Location location = cell.getLocation();
-    int boxRowMin = computeBoxBoundMinIndex(location.getRowIndex());
-    int boxColMin = computeBoxBoundMinIndex(location.getColIndex());
-    for (int rowIdx = boxRowMin; rowIdx < boxRowMin+3; rowIdx++) {
-
+  /**
+   * move cells from solved to unsolved until find a cell that can update digit to next candidate.
+   * every cell in unsolved should be reset to 0.
+   */
+  private void backTrack() {
+    while (!solvedCells.empty()) {
+      Cell cell = solvedCells.peek();
+      if (cell.updateDigit()) {
+        return;
+      }
+      cell.resetCandidateIndex();
+      unsolvedCells.push(solvedCells.pop());
     }
-//    grid.getCellAt(l)
-    throw new UnsupportedOperationException("TODO");
+    grid.print();
+    throw new IllegalStateException("SolvedCells should never be empty unless sudoku is solved.");
   }
 
-  private static int computeBoxBoundMinIndex(int cellIndex) {
-    return (cellIndex / 3) * 3;
+  public void printCandidates() {
+    grid.getNonClueCells()
+        .forEach(
+            cell ->
+                System.out.println(
+                    String.format("%s: %s", cell.getLocation(), cell.getCandidates())));
   }
 }
