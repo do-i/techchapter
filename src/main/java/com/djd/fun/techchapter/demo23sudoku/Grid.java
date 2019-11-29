@@ -36,7 +36,8 @@ public class Grid {
   public List<Cell> getNonClueCells() {
     return getCellStream()
         .filter(not(Cell::isClueCell))
-        // This sortin reverse order is critical in performance. Process cells that has less candidates.
+        // This sortin reverse order is critical in performance. Process cells that has less
+        // candidates.
         .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()).reversed())
         .collect(ImmutableList.toImmutableList());
   }
@@ -94,8 +95,6 @@ public class Grid {
     return Stream.of(grid).flatMap(Stream::of);
   }
 
-
-
   public void print(int counter) {
     System.out.println(String.format("============= %d ==============", counter));
     System.out.println("   0__1__2__3__4__5__6__7__8");
@@ -103,6 +102,5 @@ public class Grid {
     for (Cell[] row : grid) {
       System.out.println(rowIdx++ + " " + Arrays.toString(row));
     }
-
   }
 }

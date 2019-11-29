@@ -3,7 +3,6 @@ package com.djd.fun.techchapter.demo23sudoku;
 import static com.google.common.base.Preconditions.checkPositionIndex;
 
 import java.util.Objects;
-import java.util.StringJoiner;
 
 /** Sudoku location is 9x9 */
 public class Location {
@@ -52,6 +51,5 @@ public class Location {
   @Override
   public String toString() {
     return String.format("@(%d,%d)", rowIndex, colIndex);
-
   }
 }

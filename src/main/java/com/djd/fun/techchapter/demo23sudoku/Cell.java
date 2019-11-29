@@ -3,7 +3,6 @@ package com.djd.fun.techchapter.demo23sudoku;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
 import java.util.List;
-import java.util.StringJoiner;
 
 /** Represents mutable cell in Sudoku grid. */
 public class Cell {

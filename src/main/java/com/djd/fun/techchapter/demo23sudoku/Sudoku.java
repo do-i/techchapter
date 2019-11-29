@@ -1,5 +1,6 @@
 package com.djd.fun.techchapter.demo23sudoku;
 
+import com.google.common.base.Stopwatch;
 import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -9,12 +10,14 @@ public class Sudoku {
   private final Stack<Cell> unsolvedCells = new Stack<>();
   private final Stack<Cell> solvedCells = new Stack<>();
   private final AtomicInteger transitionCount = new AtomicInteger();
+
   public Sudoku(int[][] gridSeed) {
     this.grid = new Grid(gridSeed);
     grid.getNonClueCells().forEach(unsolvedCells::push);
   }
 
   public void solve() {
+    Stopwatch stopwatch = Stopwatch.createStarted();
     while (!unsolvedCells.empty()) {
       Cell cell = unsolvedCells.peek();
       if (cell.updateDigit()) {
@@ -25,6 +28,7 @@ public class Sudoku {
       }
     }
     grid.print(transitionCount.get());
+    System.out.println(stopwatch.stop());
   }
 
   /**
