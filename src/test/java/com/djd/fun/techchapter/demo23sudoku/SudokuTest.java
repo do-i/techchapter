@@ -14,7 +14,6 @@ public class SudokuTest {
 
   @Test
   public void solve() {
-    sudoku.printCandidates();
-    sudoku.solve();
+    // TODO
   }
 }
