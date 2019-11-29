@@ -36,7 +36,9 @@ public class Grid {
   public List<Cell> getNonClueCells() {
     return getCellStream()
         .filter(not(Cell::isClueCell))
+        // for debugging change sort order
         .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()).reversed())
+//        .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()))
         .collect(ImmutableList.toImmutableList());
   }
 
@@ -96,11 +98,12 @@ public class Grid {
   private static int printCount = 0;
 
   public void print() {
+    System.out.println(String.format("============= %d ==============", printCount++));
     System.out.println("   0__1__2__3__4__5__6__7__8");
     int rowIdx = 0;
     for (Cell[] row : grid) {
       System.out.println(rowIdx++ + " " + Arrays.toString(row));
     }
-    System.out.println(String.format("============= %d ==============", printCount++));
+
   }
 }

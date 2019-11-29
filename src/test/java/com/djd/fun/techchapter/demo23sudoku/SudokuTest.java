@@ -9,7 +9,7 @@ public class SudokuTest {
 
   @Before
   public void setUp() {
-    sudoku = new Sudoku();
+    sudoku = new Sudoku(Data.DEBUG_DATA_BREAKS);
   }
 
   @Test

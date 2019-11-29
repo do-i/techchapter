@@ -8,21 +8,7 @@ public class Sudoku {
   private final Stack<Cell> unsolvedCells = new Stack();
   private final Stack<Cell> solvedCells = new Stack();
 
-  public Sudoku() {
-    int[][] gridSeed =
-        new int[][] {
-          {5, 3, 0, 0, 7, 0, 0, 0, 0},
-          {6, 0, 0, 1, 9, 5, 0, 0, 0},
-          {0, 9, 8, 0, 0, 0, 0, 6, 0},
-          // ------------------------
-          {8, 0, 0, 0, 6, 0, 0, 0, 3},
-          {4, 0, 0, 8, 0, 3, 0, 0, 1},
-          {7, 0, 0, 0, 2, 0, 0, 0, 6},
-          // ------------------------
-          {0, 6, 0, 0, 0, 0, 2, 8, 0},
-          {0, 0, 0, 4, 1, 9, 0, 0, 5},
-          {0, 0, 0, 0, 8, 0, 0, 7, 9}
-        };
+  public Sudoku(int[][] gridSeed) {
     this.grid = new Grid(gridSeed);
     grid.getNonClueCells().forEach(unsolvedCells::push);
   }
@@ -44,12 +30,15 @@ public class Sudoku {
    * every cell in unsolved should be reset to 0.
    */
   private void backTrack() {
+    System.out.println("<<<<----- B a c k   T r a c k ----->>>>");
     while (!solvedCells.empty()) {
       Cell cell = solvedCells.peek();
       if (cell.updateDigit()) {
+        grid.print();
         return;
       }
       cell.resetCandidateIndex();
+      grid.print();
       unsolvedCells.push(solvedCells.pop());
     }
     grid.print();
