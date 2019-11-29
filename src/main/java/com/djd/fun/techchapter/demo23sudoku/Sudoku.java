@@ -48,7 +48,6 @@ public class Sudoku {
         return;
       }
       transitionCount.incrementAndGet();
-      cell.resetCandidateIndex();
       unsolvedCells.push(solvedCells.pop());
     }
     throw new IllegalStateException("SolvedCells should never be empty unless sudoku is solved.");
