@@ -51,9 +51,7 @@ public class Location {
 
   @Override
   public String toString() {
-    return new StringJoiner(", ", Location.class.getSimpleName() + "[", "]")
-        .add("rowIndex=" + rowIndex)
-        .add("colIndex=" + colIndex)
-        .toString();
+    return String.format("@(%d,%d)", rowIndex, colIndex);
+
   }
 }

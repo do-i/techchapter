@@ -1,13 +1,14 @@
 package com.djd.fun.techchapter.demo23sudoku;
 
 import java.util.Stack;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sudoku {
 
   private final Grid grid;
-  private final Stack<Cell> unsolvedCells = new Stack();
-  private final Stack<Cell> solvedCells = new Stack();
-
+  private final Stack<Cell> unsolvedCells = new Stack<>();
+  private final Stack<Cell> solvedCells = new Stack<>();
+  private final AtomicInteger transitionCount = new AtomicInteger();
   public Sudoku(int[][] gridSeed) {
     this.grid = new Grid(gridSeed);
     grid.getNonClueCells().forEach(unsolvedCells::push);
@@ -18,11 +19,12 @@ public class Sudoku {
       Cell cell = unsolvedCells.peek();
       if (cell.updateDigit()) {
         solvedCells.push(unsolvedCells.pop());
-        grid.print();
+        transitionCount.incrementAndGet();
       } else {
         backTrack();
       }
     }
+    grid.print(transitionCount.get());
   }
 
   /**
@@ -30,18 +32,18 @@ public class Sudoku {
    * every cell in unsolved should be reset to 0.
    */
   private void backTrack() {
+    grid.print(transitionCount.get());
     System.out.println("<<<<----- B a c k   T r a c k ----->>>>");
     while (!solvedCells.empty()) {
       Cell cell = solvedCells.peek();
       if (cell.updateDigit()) {
-        grid.print();
+        transitionCount.incrementAndGet();
         return;
       }
+      transitionCount.incrementAndGet();
       cell.resetCandidateIndex();
-      grid.print();
       unsolvedCells.push(solvedCells.pop());
     }
-    grid.print();
     throw new IllegalStateException("SolvedCells should never be empty unless sudoku is solved.");
   }
 

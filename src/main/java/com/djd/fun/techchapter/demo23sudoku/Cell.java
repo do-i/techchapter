@@ -118,6 +118,8 @@ public class Cell {
         return true;
       }
     }
+    // BugFix: Without this candidateIndex would not reset to -1 even digit is zero.
+    resetCandidateIndex();
     return false;
   }
 
