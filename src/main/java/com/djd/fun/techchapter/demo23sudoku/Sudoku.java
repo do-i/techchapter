@@ -3,9 +3,12 @@ package com.djd.fun.techchapter.demo23sudoku;
 import com.google.common.base.Stopwatch;
 import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Sudoku {
 
+  private static final Logger log = LoggerFactory.getLogger(Sudoku.class);
   private final Grid grid;
   private final Stack<Cell> unsolvedCells = new Stack<>();
   private final Stack<Cell> solvedCells = new Stack<>();
@@ -27,8 +30,9 @@ public class Sudoku {
         backTrack();
       }
     }
+    stopwatch.stop();
     grid.print(transitionCount.get());
-    System.out.println(stopwatch.stop());
+    log.info("Took {} to solve Sudoku.", stopwatch.toString());
   }
 
   /**
@@ -37,7 +41,6 @@ public class Sudoku {
    */
   private void backTrack() {
     grid.print(transitionCount.get());
-    System.out.println("<<<<----- B a c k   T r a c k ----->>>>");
     while (!solvedCells.empty()) {
       Cell cell = solvedCells.peek();
       if (cell.updateDigit()) {
@@ -53,9 +56,6 @@ public class Sudoku {
 
   public void printCandidates() {
     grid.getNonClueCells()
-        .forEach(
-            cell ->
-                System.out.println(
-                    String.format("%s: %s", cell.getLocation(), cell.getCandidates())));
+        .forEach(cell -> log.info("{}: {}", cell.getLocation(), cell.getCandidates()));
   }
 }
