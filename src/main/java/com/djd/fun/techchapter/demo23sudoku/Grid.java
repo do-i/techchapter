@@ -39,6 +39,7 @@ public class Grid {
         // This sortin reverse order is critical in performance. Process cells that has less
         // candidates.
         .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()).reversed())
+//        .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()))
         .collect(ImmutableList.toImmutableList());
   }
 
