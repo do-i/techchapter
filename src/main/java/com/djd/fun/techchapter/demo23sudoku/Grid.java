@@ -15,8 +15,12 @@ import java.util.stream.Stream;
 public class Grid {
 
   private static final int SIZE = 9;
+  private static final Comparator<Cell> SMALL_CANDIDATE_FIRST =
+      Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()).reversed();
+  private static final Comparator<Cell> ROWS_FIRST =
+      Comparator.comparing((Cell cell) -> cell.getLocation().getRowIndex())
+          .thenComparing(cell -> cell.getLocation().getColIndex()).reversed();
   private final Cell[][] grid = new Cell[SIZE][SIZE];
-
   /** @param initialGrid 9x9 grid */
   public Grid(int[][] initialGrid) {
     // First place all digits in the grid.
@@ -36,10 +40,11 @@ public class Grid {
   public List<Cell> getNonClueCells() {
     return getCellStream()
         .filter(not(Cell::isClueCell))
-        // This sortin reverse order is critical in performance. Process cells that has less
-        // candidates.
-        .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()).reversed())
-//        .sorted(Comparator.<Cell, Integer>comparing(cell -> cell.getCandidates().size()))
+        /*
+        This sortin reverse order is critical in performance. Start with cells that have less
+        candidates.
+        */
+        .sorted(SMALL_CANDIDATE_FIRST)
         .collect(ImmutableList.toImmutableList());
   }
 

@@ -2,6 +2,19 @@ package com.djd.fun.techchapter.demo23sudoku;
 
 public class Data {
 
+  public static final int[][] ONE_STAR_SUDOKU = {
+    {5, 1, 7, 0, 6, 0, 0, 3, 8},
+    {0, 0, 0, 5, 0, 3, 0, 4, 0},
+    {0, 0, 0, 7, 8, 9, 0, 1, 0},
+    // ------------------------
+    {3, 0, 1, 8, 0, 5, 0, 0, 4},
+    {0, 2, 6, 0, 7, 0, 8, 5, 0},
+    {9, 0, 0, 4, 0, 6, 1, 0, 3},
+    // ------------------------
+    {0, 9, 0, 1, 3, 7, 0, 0, 0},
+    {0, 6, 0, 9, 0, 2, 0, 0, 0},
+    {1, 3, 0, 0, 4, 0, 7, 9, 2}
+  };
   public static final int[][] WORLD_HARDEST = {
     {8, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 3, 6, 0, 0, 0, 0, 0},
@@ -16,9 +29,7 @@ public class Data {
     {0, 9, 0, 0, 0, 0, 4, 0, 0}
   };
 
-  /**
-   * Took 32 seconds with 2,960,594 transitions.
-   */
+  /** Took 32 seconds with 2,960,594 transitions. */
   public static final int[][] WORLD_HARDEST_SOLUTION = {
     {8, 1, 2, 7, 5, 3, 6, 4, 9},
     {9, 4, 3, 6, 8, 2, 1, 7, 5},
@@ -33,7 +44,7 @@ public class Data {
     {7, 9, 6, 3, 1, 8, 4, 5, 2}
   };
 
-  public static final int[][] BOOK_DATA = {
+  public static final int[][] FIVE_STAR_SUDOKU = {
     {0, 1, 0, 0, 0, 0, 0, 0, 0},
     {7, 0, 0, 4, 0, 0, 0, 0, 2},
     {0, 5, 3, 0, 7, 0, 0, 0, 0},
