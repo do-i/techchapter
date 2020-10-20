@@ -17,7 +17,7 @@ repositories {
 dependencies {
     // Commons
     implementation group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.21'
-    implementation group: 'com.google.guava', name: 'guava', version:'23.0'
+    implementation group: 'com.google.guava', name: 'guava', version:'28.1-jre'
     implementation group: 'com.google.inject', name: 'guice', version:'4.1.0'
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version:'3.0.1'
     // App specific
@@ -31,5 +31,5 @@ dependencies {
 
 jar {
     baseName = 'techchapter'
-    version =  '1.0.0'
+    version =  '1.0.1'
 }
