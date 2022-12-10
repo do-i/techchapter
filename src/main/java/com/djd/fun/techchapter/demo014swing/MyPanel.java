@@ -1,8 +1,5 @@
 package com.djd.fun.techchapter.demo014swing;
 
-import static java.awt.BorderLayout.CENTER;
-import static java.awt.BorderLayout.NORTH;
-
 import com.djd.fun.techchapter.demo014swing.canvas.Animation;
 import com.djd.fun.techchapter.demo014swing.canvas.BullseyeCanvas;
 import com.djd.fun.techchapter.demo014swing.canvas.CirculatorPanel;
@@ -17,14 +14,18 @@ import com.djd.fun.techchapter.demo014swing.maze.SmallGame;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collection;
-import javax.swing.JPanel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static java.awt.BorderLayout.CENTER;
+import static java.awt.BorderLayout.NORTH;
 
 public class MyPanel extends JPanel implements ActionListener {
 
